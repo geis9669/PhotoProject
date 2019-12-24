@@ -14,23 +14,23 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  * 
  * @author Barbara Ericson ericson@cc.gatech.edu
  */
-public class Picture extends SimplePicture 
+public class Picture extends SimplePicture
 {
   ///////////////////// constructors //////////////////////////////////
-  
+
   /**
-   * Constructor that takes no arguments 
+   * Constructor that takes no arguments
    */
   public Picture ()
   {
     /* not needed but use it to show students the implicit call to super()
-     * child constructors always call a parent constructor 
+     * child constructors always call a parent constructor
      */
-    super();  
+    super();
   }
-  
+
   /**
-   * Constructor that takes a file name and creates the picture 
+   * Constructor that takes a file name and creates the picture
    * @param fileName the name of the file to create the picture from
    */
   public Picture(String fileName)
@@ -38,7 +38,7 @@ public class Picture extends SimplePicture
     // let the parent class handle this fileName
     super(fileName);
   }
-  
+
   /**
    * Constructor that takes the width and height
    * @param height the height of the desired picture
@@ -49,9 +49,9 @@ public class Picture extends SimplePicture
     // let the parent class handle this width and height
     super(width,height);
   }
-  
+
   /**
-   * Constructor that takes a picture and creates a 
+   * Constructor that takes a picture and creates a
    * copy of that picture
    * @param copyPicture the picture to copy
    */
@@ -60,7 +60,7 @@ public class Picture extends SimplePicture
     // let the parent class do the copy
     super(copyPicture);
   }
-  
+
   /**
    * Constructor that takes a buffered image
    * @param image the buffered image to use
@@ -69,9 +69,9 @@ public class Picture extends SimplePicture
   {
     super(image);
   }
-  
+
   ////////////////////// methods ///////////////////////////////////////
-  
+
   /**
    * Method to return a string with information about this picture.
    * @return a string with information about the picture such as fileName,
@@ -79,13 +79,13 @@ public class Picture extends SimplePicture
    */
   public String toString()
   {
-    String output = "Picture, filename " + getFileName() + 
-      " height " + getHeight() 
+    String output = "Picture, filename " + getFileName() +
+      " height " + getHeight()
       + " width " + getWidth();
     return output;
-    
+
   }
-  
+
   /** Method to set the blue to 0 */
   public void zeroBlue()
   {
@@ -129,6 +129,21 @@ public class Picture extends SimplePicture
         pixelObj.setBlue(255- pixelObj.getBlue());
         pixelObj.setRed(255- pixelObj.getRed());
         pixelObj.setGreen(255 - pixelObj.getGreen());
+      }
+    }
+  }
+
+  public void grayscale()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for(Pixel[] row: pixels)
+    {
+      for(Pixel column: row)
+      {
+        int grayAmount = (column.getBlue()+column.getRed()
+                +column.getGreen())/3;
+        Color newColor = new Color(grayAmount, grayAmount, grayAmount);
+        column.setColor(newColor);
       }
     }
   }
