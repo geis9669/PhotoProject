@@ -98,6 +98,31 @@ public class Picture extends SimplePicture
       }
     }
   }
+
+  /** Method to set the red and green to 0 */
+  public void keepOnlyBlue()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for(Pixel[] rowArray: pixels)
+    {
+      for(Pixel pixelObj : rowArray)
+      {
+        pixelObj.setGreen(0);
+        pixelObj.setRed(0);
+      }
+    }
+  }
+
+  /** To negate a picture,
+   * set the red value to 255 minus the current red value,
+   * the green value to 255 minus the current green value and
+   * the blue value to 255 minus the current blue value
+   */
+  public void negate()
+  {
+
+  }
+
   
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
