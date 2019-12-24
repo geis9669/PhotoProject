@@ -242,6 +242,31 @@ public class Picture extends SimplePicture
       }
     }
   }
+
+  /** Mirror the picture from right to left */
+  public void mirrorVerticalRightToLeft()
+  {
+    Pixel rightPixel;
+    Pixel leftPixel;
+    Pixel[][] pixels = this.getPixels2D();
+    int half = (pixels[1].length)/2;
+    for(int row = 0; row < pixels.length; row++)
+    {
+      for(int column = 0; column<half; column++)
+      {
+        if(pixels[1].length%2==0)
+        {
+          rightPixel = pixels[row][half-column+(half-1)];
+        }
+        else
+        {
+          rightPixel = pixels[row][half - column + half];
+        }
+        leftPixel = pixels[row][column];
+        leftPixel.setColor(rightPixel.getColor());
+      }
+    }
+  }
   
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the

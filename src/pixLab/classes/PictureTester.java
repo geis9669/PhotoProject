@@ -89,6 +89,15 @@ public class PictureTester
     temple.mirrorTemple();
     temple.explore();
   }
+
+  /** method to test mirrorVerticalLeftToRight*/
+  public static void testMirrorVerticalLeftToRight(String pictureName)
+  {
+    Picture picture = new Picture(pictureName);
+    picture.explore();
+    picture.mirrorVerticalRightToLeft();
+    picture.explore();
+  }
   
   /** Method to test the collage method */
   public static void testCollage()
@@ -114,14 +123,15 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue("water.jpg");
-    testKeepOnlyBlue("water.jpg"); // greg
-    testKeepOnlyRed("water.jpg");//greg
-    testKeepOnlyGreen("water.jpg");//greg
+    //testKeepOnlyBlue("water.jpg"); // greg
+    //testKeepOnlyRed("water.jpg");//greg
+    //testKeepOnlyGreen("water.jpg");//greg
     //testNegate("water.jpg");// greg
     //testGrayscale("water.jpg"); // greg
     //testFixUnderwater("water.jpg");//greg not done confused
     //testMirrorVertical();
     //testMirrorTemple();
+    testMirrorVerticalLeftToRight("water.jpg"); //greg
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
