@@ -45,7 +45,61 @@ public class IntArrayWorker
     }
     return total;
   }
-  
+
+  /**
+   * the count of the number of times a passed integer value is found the matrix
+   * @param find what to find
+   * @return the number of times passed
+   */
+  public int getCount(int find)
+  {
+    int numberFound = 0;
+    for(int[] row: matrix)
+    {
+      for(int column: row)
+      {
+        if(column == find)
+        {
+          numberFound += 1;
+        }
+      }
+    }
+    return numberFound;
+  }
+
+  /**
+   * finds the largest int in the 2D array
+   * @return the largest value
+   */
+  public int getLargest() {
+    int largest = Integer.MIN_VALUE;
+    for (int[] row : matrix)
+    {
+      for(int column : row)
+      {
+        if(column > largest)
+        {
+          largest = column;
+        }
+      }
+    }
+    return largest;
+  }
+
+  /**
+   * returns the total of all integers in a specified column
+   * @Param column of the array you want to total of.
+   * @return the total of the column
+   */
+  public int getColTotal(int column)
+  {
+    int colTotal = 0;
+    for(int[] row: matrix)
+    {
+      colTotal += row[column];
+    }
+    return colTotal;
+  }
   /**
    * Method to fill with an increasing count
    */
