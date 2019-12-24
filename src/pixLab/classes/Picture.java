@@ -267,6 +267,32 @@ public class Picture extends SimplePicture
       }
     }
   }
+
+  /** mirrors a picture around the middle of the horizontal axis */
+  public void mirrorHorizontalTopToBottom()
+  {
+    Pixel topPixel ;
+    Pixel bottomPixel;
+    Pixel[][] pixels = this.getPixels2D();
+    int half = pixels.length/2;
+    for(int row=0; row<half;row++)
+    {
+      for(int column=0; column < pixels[row].length; column++)
+      {
+        if(pixels.length%2==0)
+        {
+          bottomPixel = pixels[half-row+(half-1)][column];
+        }
+        else
+        {
+          bottomPixel = pixels[half-row+half][column];
+        }
+        topPixel = pixels[row][column];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+
+  }
   
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the

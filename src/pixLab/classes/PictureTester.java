@@ -98,6 +98,15 @@ public class PictureTester
     picture.mirrorVerticalRightToLeft();
     picture.explore();
   }
+
+  /** Method to test mirrorHorizontalTopToBottom */
+  public static void testMirrorHorizontalTopToBottom(String pictureName)
+  {
+    Picture picture = new Picture(pictureName);
+    picture.explore();
+    picture.mirrorHorizontalTopToBottom();
+    picture.explore();
+  }
   
   /** Method to test the collage method */
   public static void testCollage()
@@ -132,6 +141,7 @@ public class PictureTester
     //testMirrorVertical();
     //testMirrorTemple();
     testMirrorVerticalLeftToRight("water.jpg"); //greg
+    testMirrorHorizontalTopToBottom("redMotorcycle.jpg");
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
