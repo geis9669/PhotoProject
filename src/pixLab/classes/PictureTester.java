@@ -10,41 +10,68 @@ package pixLab.classes;
 public class PictureTester
 {
   /** Method to test zeroBlue */
-  public static void testZeroBlue()
+  public static void testZeroBlue(String pictureName)
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture(pictureName);
     beach.explore();
     beach.zeroBlue();
     beach.explore();
   }
 
   /** Method to test keepOnlyBlue */
-  public static void testKeepOnlyBlue()
+  public static void testKeepOnlyBlue(String pictureName)
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture(pictureName);
     beach.explore();
     beach.keepOnlyBlue();
     beach.explore();
   }
 
-  /** Method to test negate */
-  public static void testNegate()
+  /** Method to test keepOnlyRed */
+  public static void testKeepOnlyRed(String pictureName)
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture picture = new Picture(pictureName);
+    picture.explore();
+    picture.keepOnlyRed();
+    picture.explore();
+  }
+
+  /** Method to test keepOnlyGreen */
+  public static void testKeepOnlyGreen(String pictureName)
+  {
+    Picture picture = new Picture(pictureName);
+    picture.explore();
+    picture.keepOnlyGreen();
+    picture.explore();
+  }
+
+  /** Method to test negate */
+  public static void testNegate(String pictureName)
+  {
+    Picture beach = new Picture(pictureName);
     beach.explore();
     beach.negate();
     beach.explore();
   }
 
   /** Method to test grayscale*/
-  public static void testGrayscale()
+  public static void testGrayscale(String pictureName)
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture(pictureName);
     beach.explore();
     beach.grayscale();
     beach.explore();
   }
-  
+
+  /** Method to test fixUnderwater*/
+  public static void testFixUnderwater(String pictureName)
+  {
+    Picture sea = new Picture(pictureName);
+    sea.explore();
+    sea.fixUnderwater();
+    sea.explore();
+  }
+
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -86,13 +113,13 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    //testZeroBlue();
-    //testKeepOnlyBlue(); // greg
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    testNegate();// greg
-    testGrayscale(); // greg
-    //testFixUnderwater();
+    //testZeroBlue("water.jpg");
+    testKeepOnlyBlue("water.jpg"); // greg
+    testKeepOnlyRed("water.jpg");//greg
+    testKeepOnlyGreen("water.jpg");//greg
+    //testNegate("water.jpg");// greg
+    //testGrayscale("water.jpg"); // greg
+    //testFixUnderwater("water.jpg");//greg not done confused
     //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();

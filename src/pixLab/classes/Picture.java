@@ -113,6 +113,34 @@ public class Picture extends SimplePicture
     }
   }
 
+  /** Method to set the green and blue to 0 */
+  public void keepOnlyRed()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for(Pixel[] rowArray: pixels)
+    {
+      for(Pixel pixelObj : rowArray)
+      {
+        pixelObj.setGreen(0);
+        pixelObj.setBlue(0);
+      }
+    }
+  }
+
+  /** Method to set the blue and red to 0 */
+  public void keepOnlyGreen()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for(Pixel[] rowArray: pixels)
+    {
+      for(Pixel pixelObj : rowArray)
+      {
+        pixelObj.setBlue(0);
+        pixelObj.setRed(0);
+      }
+    }
+  }
+
   /** To negate a picture,
    * set the red value to 255 minus the current red value,
    * the green value to 255 minus the current green value and
@@ -133,6 +161,9 @@ public class Picture extends SimplePicture
     }
   }
 
+  /** sets all the red green blue values to their average
+   *  (adds the red green and blue values then divides by 3)
+   */
   public void grayscale()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -144,6 +175,26 @@ public class Picture extends SimplePicture
                 +column.getGreen())/3;
         Color newColor = new Color(grayAmount, grayAmount, grayAmount);
         column.setColor(newColor);
+      }
+    }
+  }
+
+  /** method to make fish easier to see */
+  public void fixUnderwater()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for(Pixel[] row: pixels)
+    {
+      for(Pixel column: row)
+      {
+        if(column.getRed() > 23)
+        {
+          column.setBlue(column.getBlue()-(column.getBlue()/10));
+          column.setGreen(column.getGreen()-(column.getGreen()/10));
+          //column.setRed(column.getRed()+20);
+        }
+        //int blue = column.getBlue()/2;
+        //column.setBlue(blue);
       }
     }
   }
