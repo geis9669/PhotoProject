@@ -30,7 +30,10 @@ public class PictureTester
   /** Method to test negate */
   public static void testNegate()
   {
-
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.negate();
+    beach.explore();
   }
   
   /** Method to test mirrorVertical */
@@ -78,7 +81,7 @@ public class PictureTester
     testKeepOnlyBlue(); // me
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
+    testNegate();// me
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();

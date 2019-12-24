@@ -120,9 +120,18 @@ public class Picture extends SimplePicture
    */
   public void negate()
   {
-
+    Pixel[][] pixels = this.getPixels2D();
+    for(int row = 0; row < pixels.length; row++)
+    {
+      for(int column = 0; column < pixels[row].length; column++)
+      {
+        Pixel pixelObj = pixels[row][column];
+        pixelObj.setBlue(255- pixelObj.getBlue());
+        pixelObj.setRed(255- pixelObj.getRed());
+        pixelObj.setGreen(255 - pixelObj.getGreen());
+      }
+    }
   }
-
   
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
