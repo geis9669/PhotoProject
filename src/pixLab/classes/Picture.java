@@ -269,17 +269,35 @@ public class Picture extends SimplePicture
   }
 
   /** mirrors a picture around the middle of the horizontal axis */
-  public void mirrorHorizontalTopToBottom()
-  {
-    Pixel topPixel ;
+  public void mirrorHorizontalTopToBottom() {
+    Pixel topPixel;
     Pixel bottomPixel;
     Pixel[][] pixels = this.getPixels2D();
-    int half = pixels.length/2;
-    for(int row=0; row<half;row++)
+    int half = pixels.length / 2;
+    for (int row = 0; row < half; row++) {
+      for (int column = 0; column < pixels[row].length; column++) {
+        if (pixels.length % 2 == 0) {
+          bottomPixel = pixels[half - row + (half - 1)][column];
+        } else {
+          bottomPixel = pixels[half - row + half][column];
+        }
+        topPixel = pixels[row][column];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+  }
+
+  /** mirrors a picture around the middle of the horizontal axis bottom to top*/
+  public void mirrorHorizontalBottomToTop() {
+    Pixel topPixel;
+    Pixel bottomPixel;
+    Pixel[][] pixels = this.getPixels2D();
+    int half = pixels.length / 2;
+    for (int row = 0; row < half; row++)
     {
-      for(int column=0; column < pixels[row].length; column++)
+      for(int column = 0; column < pixels[row].length; column++)
       {
-        if(pixels.length%2==0)
+        if(pixels.length %2 ==0)
         {
           bottomPixel = pixels[half-row+(half-1)][column];
         }
@@ -288,10 +306,46 @@ public class Picture extends SimplePicture
           bottomPixel = pixels[half-row+half][column];
         }
         topPixel = pixels[row][column];
-        bottomPixel.setColor(topPixel.getColor());
+        topPixel.setColor(bottomPixel.getColor());
       }
     }
+  }
 
+  /** method to take a square and mirror it diagonally. from bottom left to top right*/
+  public void mirrorDiagonal()
+  {
+    Pixel topLeft ;
+    Pixel bottomRight;
+    Pixel[][] pixels = this.getPixels2D();
+    //width and height will be the same because I want a square
+    int sideLength;
+    if(pixels.length <= pixels[0].length)
+    {
+      sideLength = pixels.length;
+    }
+    else
+    {
+      sideLength = pixels[0].length;
+    }
+
+    for(int row =0;row<sideLength;row++)
+    {
+      for(int column =0;column<sideLength;column++)
+      {
+        int half = sideLength/2;
+        if(sideLength%2==0)
+        {
+          topLeft = pixels[half-row+(half-1)][half-column+(half-1)];
+          bottomRight = pixels[half-column+(half-1)][half-row+(half-1)];
+        }
+        else
+        {
+          topLeft = pixels[half-row+half][half-column+half];
+          bottomRight = pixels[half-column+half][half-row+half];
+        }
+        bottomRight.setColor(topLeft.getColor());
+      }
+    }
   }
   
   /** copy from the passed fromPic to the
