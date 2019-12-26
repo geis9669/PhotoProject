@@ -371,6 +371,27 @@ public class Picture extends SimplePicture
       }
     }
   }
+
+  /** makes a second sea gull in the seagull.jpg */
+  public void mirrorGull()
+  {
+    int mirrorPoint = 230; //column
+    Pixel firstPixel;
+    Pixel secondPixel;
+    Pixel[][] pixels = this.getPixels2D();
+
+    for(int row = 234; row< 322; row++)
+    {
+      for(int column = 345; column > mirrorPoint; column--)
+      {
+        firstPixel = pixels[row][column];
+        secondPixel = pixels[row][mirrorPoint-column+mirrorPoint];
+        secondPixel.setColor(firstPixel.getColor());
+      }
+    }
+
+  }
+
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
