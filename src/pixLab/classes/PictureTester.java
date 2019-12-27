@@ -144,6 +144,19 @@ public class PictureTester
     seagull.explore();
   }
 
+  /** Method to test the Copy that takes more parameters */
+  public static void testCopy()
+  {
+    Picture kitten = new Picture("kitten2.jpg");
+    Picture cumberlandIsland = new Picture("CumberlandIsland.jpg");
+    cumberlandIsland.copy(kitten,457,206,
+            87,124,212,342);
+    //kitten.explore();
+    cumberlandIsland.explore();
+    // row 87 to 212 column 124 to 342 kitten size column 218 row 125
+    // column 431 2, row 575 6 startRow 457 startColumn 206
+  }
+
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -181,10 +194,10 @@ public class PictureTester
     //testMirrorDiagonal("beach.jpg");
     //testMirrorTemple();
     //testMirrorArms(); //greg
-    testMirrorGull(); //greg
-    //testMirrorDiagonal();
+    //testMirrorGull(); //greg
+    testCopy();
     //testCollage();
-    //testCopy();
+    //testMyCollage();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
