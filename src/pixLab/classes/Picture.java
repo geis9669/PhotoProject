@@ -303,7 +303,6 @@ public class Picture extends SimplePicture
     {
       sideLength = pixels[0].length;
     }
-
     for(int row =0;row<sideLength;row++)
     {
       for(int column =0;column<sideLength;column++)
@@ -471,7 +470,32 @@ public class Picture extends SimplePicture
     this.mirrorVertical();
     this.write("collage.jpg");
   }
-  
+
+  /** Method to crate a collage of several pictures that greg made */
+  public void createMyCollage()
+  {
+    // mirroring and two other manipulations
+    // three pictures
+    Picture beach = new Picture( "beach.jpg");
+    Pixel[][] beachPixels = beach.getPixels2D();
+    Picture beachSquare = new Picture(beachPixels.length,beachPixels.length);
+    beachSquare.copy(beach, 0,0);
+    beachSquare = beachSquare.scale(0.5,0.5);
+    beachSquare.mirrorDiagonal();
+
+    Picture whiteFlower = new Picture("whiteFlower.jpg");
+    whiteFlower = whiteFlower.scale(0.50,0.669);
+    int flowerSize = (beachPixels.length/2)/2;
+    Picture flowers = new Picture(flowerSize,flowerSize);
+    flowers.copy(whiteFlower, 0, 0,47,130,1000,1000);
+    flowers.zeroBlue();
+
+    this.copy(beachSquare,0,0);
+    this.copy(flowers,0,0);
+    this.mirrorHorizontalTopToBottom();
+    this.mirrorVertical();
+    this.write("myCollage.jpg");
+  }
   
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
@@ -505,7 +529,7 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("whiteFlower.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
