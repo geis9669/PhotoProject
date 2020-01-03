@@ -552,6 +552,47 @@ public class Picture extends SimplePicture
       }
     }
   }
+
+  /**
+   * Method to find edges from top to bottom
+   * @param edgeDistance the distance for finding the edges
+   */
+  public void edgeDetection3(int edgeDistance)
+  {
+    Pixel currentPixel;
+    Pixel nextPixel;
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel[][] pixels2 = this.getPixels2D().clone();
+    Color nextColor;
+//    for (int row = 0; row < pixels.length; row++)
+//    {
+//      for (int col = 0;
+//           col < pixels[0].length-1; col++)
+//      {
+//        currentPixel = pixels[row][col];
+//        nextPixel = pixels[row][col+1];
+//        nextColor = nextPixel.getColor();
+//        if (currentPixel.colorDistance(nextColor) >
+//                edgeDistance)
+//          currentPixel.setColor(Color.BLACK);
+//        else
+//          currentPixel.setColor(Color.WHITE);
+//      }
+//    }
+    for(int col = 0; col < pixels2[0].length; col++)
+    {
+      for(int row = 0; row< pixels2.length-1; row++)
+      {
+        currentPixel = pixels2[row][col];
+        nextPixel = pixels2[row+1][col];
+        nextColor =nextPixel.getColor();
+        if(currentPixel.colorDistance(nextColor)> edgeDistance)
+          pixels[row][col].setColor(Color.black);
+        else
+          pixels[row][col].setColor(Color.white);
+      }
+    }
+  }
   
   
   /* Main method for testing - each class in Java can have a main 
