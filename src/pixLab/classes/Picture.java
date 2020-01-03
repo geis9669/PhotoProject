@@ -522,6 +522,36 @@ public class Picture extends SimplePicture
       }
     }
   }
+
+  /**
+   * Method to show large changes in color both left to right and up and down.
+   * @param edgeDistance the distance for finding edges
+   */
+  public void edgeDetection2(int edgeDistance)
+  {
+    Pixel leftPixel;
+    Pixel rightPixel;
+    Pixel downPixel;
+    Pixel[][] pixels = this.getPixels2D();
+    Color rightColor;
+    Color downColor;
+    for(int row=0; row<pixels.length-1;row++)
+    {
+      for(int column=0; column<pixels[row].length-1; column++)
+      {
+        leftPixel = pixels[row][column];
+        rightPixel = pixels[row][column+1];
+        downPixel = pixels[row+1][column];
+        rightColor = rightPixel.getColor();
+        downColor = downPixel.getColor();
+        if(leftPixel.colorDistance(rightColor) > edgeDistance
+                || leftPixel.colorDistance(downColor) > edgeDistance)
+          leftPixel.setColor(Color.black);
+        else
+          leftPixel.setColor(Color.white);
+      }
+    }
+  }
   
   
   /* Main method for testing - each class in Java can have a main 
