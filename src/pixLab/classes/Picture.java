@@ -319,7 +319,7 @@ public class Picture extends SimplePicture
     int half = pixels.length / 2;
     for (int row = 0; row < half; row++) {
       for (int column = 0; column < pixels[row].length; column++) {
-        if (pixels.length % 2 == 0) {
+        if (pixels.length % 2 == 0) {// even 
           bottomPixel = pixels[half - row + (half - 1)][column];
         } else {
           bottomPixel = pixels[half - row + half][column];
