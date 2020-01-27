@@ -212,7 +212,7 @@ public class PictureTester
     //testKeepOnlyGreen("water.jpg");//greg
     //testNegate("water.jpg");// greg
     //testGrayscale("water.jpg"); // greg
-    //testFixUnderwater("water.jpg");//greg not done confused
+    testFixUnderwater("water.jpg");//greg not done confused
     //testMirrorVertical();
     //testMirrorVerticalLeftToRight("water.jpg"); //greg
     //testMirrorHorizontalTopToBottom("redMotorcycle.jpg");
@@ -224,9 +224,9 @@ public class PictureTester
     //testCopy();
     //testCollage();
     //testMyCollage();
-    testEdgeDetection();
-    testEdgeDetection2();// greg
-    testEdgeDetection3(); //greg
+    //testEdgeDetection();
+    //testEdgeDetection2();// greg
+    //testEdgeDetection3(); //greg
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
