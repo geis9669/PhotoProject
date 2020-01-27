@@ -98,6 +98,33 @@ public class Picture extends SimplePicture
       }
     }
   }
+  
+  /** Method to set the red to 0 */
+  public void zeroRed()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj : rowArray)
+          {
+              pixelObj.setRed(0);
+          }
+      }
+  }
+  
+  /** Method to set the green to 0*/
+  public void zeroGreen()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(int row =0;row<pixels.length; row++)
+      {
+          for(int col = 0; col<pixels[row].length; col++)
+          {
+              pixels[row][col].setGreen(0);
+          }
+      }
+      
+  }
 
   /** Method to set the red and green to 0 */
   public void keepOnlyBlue()
@@ -187,12 +214,13 @@ public class Picture extends SimplePicture
     {
       for(Pixel column: row)
       {
-        if(column.getRed() > 23)
-        {
-          column.setBlue(column.getBlue()-(column.getBlue()/10));
-          column.setGreen(column.getGreen()-(column.getGreen()/10));
-          //column.setRed(column.getRed()+20);
-        }
+          column.setBlue(column.getBlue()-50);
+//        if(column.getRed() > 23)
+//        {
+//          column.setBlue(column.getBlue()-(column.getBlue()/10));
+//          column.setGreen(column.getGreen()-(column.getGreen()/10));
+//          //column.setRed(column.getRed()+20);
+//        }
         //int blue = column.getBlue()/2;
         //column.setBlue(blue);
       }
