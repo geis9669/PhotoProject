@@ -62,7 +62,34 @@ public class PictureTester
     picture.keepOnlyGreen();
     picture.explore();
   }
+  
+  /** Method to test MaxBlue */
+  public static void testMaxBlue(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.maxBlue();
+      picture.explore();
+  }
+  
+  /** Method to test MaxRed */
+  public static void testMaxRed(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.maxRed();
+      picture.explore();
+  }
 
+  /** Method to test MaxGreen */
+  public static void testMaxGreen(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.maxGreen();
+      picture.explore();
+  }
+  
   /** Method to test negate */
   public static void testNegate(String pictureName)
   {
@@ -233,10 +260,14 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-      String picture = "koala.jpg";
+      String picture = "blueMotorcycle.jpg";
 //    testZeroBlue("koala.jpg");
 //    testZeroRed("koala.jpg"); // greg
 //    testZeroGreen("koala.jpg");// greg
+      
+      testMaxBlue(picture); // greg
+      testMaxRed(picture);// greg
+      testMaxGreen(picture);// greg
 //    testKeepOnlyBlue(picture); // greg
 //    testKeepOnlyRed(picture);//greg
 //    testKeepOnlyGreen(picture);//greg
@@ -258,7 +289,7 @@ public class PictureTester
 //    testEdgeDetection2();// greg
 //    testEdgeDetection3(); //greg
     
-    testZeroColor(picture);
+//    testZeroColor(picture);
     
 //    testChromakey();
 //    testEncodeAndDecode();

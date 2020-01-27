@@ -125,6 +125,45 @@ public class Picture extends SimplePicture
       }
       
   }
+  
+  /** Method to set the blue to max */
+  public void maxBlue()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(Pixel[] pixelArray: pixels)
+      {
+          for(Pixel pixel : pixelArray)
+          {
+              pixel.setBlue(Integer.MAX_VALUE);
+          }
+      }
+  }
+  
+  /** Method to set the red to max */
+  public void maxRed()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(Pixel[] pixelArray: pixels)
+      {
+          for(Pixel pixel : pixelArray)
+          {
+              pixel.setRed(Integer.MAX_VALUE);
+          }
+      }
+  }
+  
+  /** Method to set the green to max */
+  public void maxGreen()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(Pixel[] pixelArray: pixels)
+      {
+          for(Pixel pixel : pixelArray)
+          {
+              pixel.setGreen(Integer.MAX_VALUE);
+          }
+      }
+  }
 
   /** Method to set the red and green to 0 */
   public void keepOnlyBlue()
