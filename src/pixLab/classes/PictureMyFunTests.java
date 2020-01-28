@@ -25,7 +25,8 @@ public class PictureMyFunTests
             
             for(Method command: methods)
             {
-                if(command.getName().contains("Red"))
+                String commandName = command.getName();
+                if(commandName.contains("Red")||commandName.contains("Blue")||commandName.contains("Green"))
                 {
                     
                 }
