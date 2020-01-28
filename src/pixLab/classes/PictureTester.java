@@ -260,19 +260,19 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-      String picture = "blueMotorcycle.jpg";
+      String picture = "caterpillar.jpg";
 //    testZeroBlue("koala.jpg");
 //    testZeroRed("koala.jpg"); // greg
 //    testZeroGreen("koala.jpg");// greg
       
-      testMaxBlue(picture); // greg
-      testMaxRed(picture);// greg
-      testMaxGreen(picture);// greg
+//      testMaxBlue(picture); // greg
+//      testMaxRed(picture);// greg
+//      testMaxGreen(picture);// greg
 //    testKeepOnlyBlue(picture); // greg
 //    testKeepOnlyRed(picture);//greg
 //    testKeepOnlyGreen(picture);//greg
 //    testNegate(picture);// greg
-//    testGrayscale(picture); // greg
+    testGrayscale(picture); // greg
 //    testFixUnderwater("water.jpg");//greg not done confused
 //    testMirrorVertical();
 //    testMirrorVerticalLeftToRight("water.jpg"); //greg
