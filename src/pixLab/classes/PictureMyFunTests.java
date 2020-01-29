@@ -28,6 +28,14 @@ public class PictureMyFunTests
     {
         List<List<Method>> results = new ArrayList<>();
         
+        for(int first = 0; first<list.size();first++)
+        {
+            List<Method> innerList = new ArrayList<>();
+            innerList.add(list.get(first));
+            results.add(innerList);
+            
+            
+        }
         
         
         return results;
