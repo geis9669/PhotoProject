@@ -253,6 +253,14 @@ public class PictureTester
       picture.zeroBlue();
       picture.explore();
   }
+  
+  public static void testGlitch(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.glitch();
+      picture.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -260,7 +268,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-      String picture = "caterpillar.jpg";
+      String picture = "water.jpg";//beach.jpg";
 //    testZeroBlue("koala.jpg");
 //    testZeroRed("koala.jpg"); // greg
 //    testZeroGreen("koala.jpg");// greg
@@ -271,9 +279,9 @@ public class PictureTester
 //    testKeepOnlyBlue(picture); // greg
 //    testKeepOnlyRed(picture);//greg
 //    testKeepOnlyGreen(picture);//greg
-//    testNegate(picture);// greg
-    testGrayscale(picture); // greg
-//    testFixUnderwater("water.jpg");//greg not done confused
+    testNegate(picture);// greg
+//    testGrayscale(picture); // greg
+    testFixUnderwater("water.jpg");//greg not done confused
 //    testMirrorVertical();
 //    testMirrorVerticalLeftToRight("water.jpg"); //greg
 //    testMirrorHorizontalTopToBottom("redMotorcycle.jpg");
@@ -297,5 +305,7 @@ public class PictureTester
 //    testSetRedToHalfValueInTopHalf();
 //    testClearBlueOverValue(200);
 //    testGetAverageForColumn(0);
+      
+//      testGlitch(picture);
   }
 }
