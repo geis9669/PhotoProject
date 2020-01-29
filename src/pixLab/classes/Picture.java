@@ -487,6 +487,30 @@ public class Picture extends SimplePicture
     }
 
   }
+  
+  
+  public void glitch()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      int randomRow = (int) (Math.random()* pixels.length);
+      int randomCol = (int) (Math.random()*pixels[0].length);
+      
+      int startRow = (int) (Math.random() * randomRow);
+      int startCol = (int) (Math.random() * randomCol);
+      
+      for(int row = startRow; row< randomRow; row++)
+      {
+          for(int col = startCol; col<randomCol; col++)
+          {
+              int red = (int) (Math.random()* 256);
+              int green = (int)(Math.random()*256);
+              int blue = (int)(Math.random()*256);
+              Color randomColor = new Color(red,green,blue);
+              
+              pixels[row][col].setColor(randomColor);
+          }
+      }
+  }
 
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
@@ -695,12 +719,12 @@ public class Picture extends SimplePicture
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
-  public static void main(String[] args) 
-  {
-    Picture beach = new Picture("whiteFlower.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
-  }
+//  public static void main(String[] args) 
+//  {
+//    Picture beach = new Picture("whiteFlower.jpg");
+//    beach.explore();
+//    beach.zeroBlue();
+//    beach.explore();
+//  }
   
 } // this } is the end of class Picture, put all new methods before this
