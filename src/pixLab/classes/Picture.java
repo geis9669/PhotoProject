@@ -389,7 +389,37 @@ public class Picture extends SimplePicture
       }
     }
   }
+  
+  public void fourWayMirror()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel topLeft = null;
+      Pixel topRight = null;
+      Pixel bottomLeft = null;
+      Pixel bottomRight = null;
+      
+      int width = pixels[0].length;
+      int height = pixels.length;
+      
+      for(int row = 0; row<height / 2; row ++)
+      {
+          for(int col = 0; col < width/2; col++)
+          {
+              topLeft = pixels[row][col];
+              topRight = pixels[row][width-col-1];
+              bottomLeft = pixels[height-row-1][col];
+              bottomRight = pixels[height-row-1][width-col-1];
+              
+              topRight.setColor(topLeft.getColor());
+              bottomLeft.setColor(topLeft.getColor());
+              bottomRight.setColor(topLeft.getColor());
+          }
+      }
+       
+       
+  }
 
+  
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
