@@ -24,15 +24,15 @@ public class PictureMyFunTests
         
     }
     
-    private static List<List<Method>> getCombinations(List<Method> list)
+    private static List<Method[]> getCombinations(List<Method> list)
     {
-        List<List<Method>> results = new ArrayList<>();
+        //List<List<Method>> results = new ArrayList<>();
+        List<Method[]> results = new ArrayList<>();
         
         for(int first = 0; first<list.size();first++)
         {
-            List<Method> innerList = new ArrayList<>();
-            innerList.add(list.get(first));
-            results.add(innerList);
+            Method[] innerList = new Method[3];
+            
             
             
         }
