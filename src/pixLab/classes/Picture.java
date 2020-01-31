@@ -112,6 +112,39 @@ public class Picture extends SimplePicture
       }
   }
   
+  public static final int RED = 0;
+  public static final int GREEN = 1;
+  public static final int BLUE = 2;
+  
+  public void zero(int color, int topRow, int topCol, int bottomRow, int bottomCol)
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      if(topRow<bottomRow&&topCol<bottomCol)
+      {
+          if(topRow>-1&&bottomRow<pixels.length&&topCol > -1 && bottomCol < pixels[0].length) 
+          {
+              for(int row = topRow; row< bottomRow; row++)
+              {
+                  for(int col = topCol; col<bottomCol; col ++)
+                  {
+                      if(color == RED)
+                      {
+                          pixels[row][col].setRed(0);
+                      }
+                      else if(color==GREEN)
+                      {
+                          pixels[row][col].setGreen(0);
+                      }
+                      else if(color == BLUE)
+                      {
+                          pixels[row][col].setBlue(0);
+                      }
+                  }
+              }
+          }
+      }
+  }
+  
   /** Method to set the green to 0*/
   public void zeroGreen()
   {
@@ -123,7 +156,32 @@ public class Picture extends SimplePicture
               pixels[row][col].setGreen(0);
           }
       }
+  }
+  
+  /**
+   * zeros the green pixel for an area
+   * @param topRow the top of the area you want to start
+   * @param topCol where to start for the columns.
+   * @param bottomRow where to end
+   * @param bottomCol where to end
+   */
+  public void zeroGreen(int topRow, int topCol, int bottomRow, int bottomCol)
+  {
+      Pixel[][] pixels = this.getPixels2D();
       
+      if(topRow<bottomRow && topCol < bottomCol)
+      {
+          if(topRow>-1&&bottomRow<pixels.length&&topCol >-1 && bottomCol< pixels[0].length)
+          {
+              for(int row= topRow; row< bottomRow; row++)
+              {
+                  for(int col = topCol; col< bottomCol; col++)
+                  {
+                      pixels[row][col].setGreen(0);
+                  }
+              }
+          }
+      }
   }
   
   /** Method to set the blue to max */
@@ -206,6 +264,8 @@ public class Picture extends SimplePicture
       }
     }
   }
+  
+  
 
   /** To negate a picture,
    * set the red value to 255 minus the current red value,
@@ -510,6 +570,12 @@ public class Picture extends SimplePicture
               pixels[row][col].setColor(randomColor);
           }
       }
+      
+      int endRow = (int) (Math.random()*pixels.length);
+      startRow = (int) (Math.random()*endRow);
+      int endCol = (int) (Math.random()*pixels[0].length);
+      startCol = (int) (Math.random()* endCol);
+      zeroGreen(startRow,startCol,endRow,endCol);
   }
 
   /** copy from the passed fromPic to the
