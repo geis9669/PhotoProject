@@ -98,6 +98,130 @@ public class Picture extends SimplePicture
       }
     }
   }
+  
+  /** Method to set the red to 0 */
+  public void zeroRed()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj : rowArray)
+          {
+              pixelObj.setRed(0);
+          }
+      }
+  }
+  
+  public static final int RED = 0;
+  public static final int GREEN = 1;
+  public static final int BLUE = 2;
+  
+  public void zero(int color, int topRow, int topCol, int bottomRow, int bottomCol)
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      if(topRow<bottomRow&&topCol<bottomCol)
+      {
+          if(topRow>-1&&bottomRow<pixels.length&&topCol > -1 && bottomCol < pixels[0].length) 
+          {
+              for(int row = topRow; row< bottomRow; row++)
+              {
+                  for(int col = topCol; col<bottomCol; col ++)
+                  {
+                      if(color == RED)
+                      {
+                          pixels[row][col].setRed(0);
+                      }
+                      else if(color==GREEN)
+                      {
+                          pixels[row][col].setGreen(0);
+                      }
+                      else if(color == BLUE)
+                      {
+                          pixels[row][col].setBlue(0);
+                      }
+                  }
+              }
+          }
+      }
+  }
+  
+  /** Method to set the green to 0*/
+  public void zeroGreen()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(int row =0;row<pixels.length; row++)
+      {
+          for(int col = 0; col<pixels[row].length; col++)
+          {
+              pixels[row][col].setGreen(0);
+          }
+      }
+  }
+  
+  /**
+   * zeros the green pixel for an area
+   * @param topRow the top of the area you want to start
+   * @param topCol where to start for the columns.
+   * @param bottomRow where to end
+   * @param bottomCol where to end
+   */
+  public void zeroGreen(int topRow, int topCol, int bottomRow, int bottomCol)
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      
+      if(topRow<bottomRow && topCol < bottomCol)
+      {
+          if(topRow>-1&&bottomRow<pixels.length&&topCol >-1 && bottomCol< pixels[0].length)
+          {
+              for(int row= topRow; row< bottomRow; row++)
+              {
+                  for(int col = topCol; col< bottomCol; col++)
+                  {
+                      pixels[row][col].setGreen(0);
+                  }
+              }
+          }
+      }
+  }
+  
+  /** Method to set the blue to max */
+  public void maxBlue()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(Pixel[] pixelArray: pixels)
+      {
+          for(Pixel pixel : pixelArray)
+          {
+              pixel.setBlue(Integer.MAX_VALUE);
+          }
+      }
+  }
+  
+  /** Method to set the red to max */
+  public void maxRed()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(Pixel[] pixelArray: pixels)
+      {
+          for(Pixel pixel : pixelArray)
+          {
+              pixel.setRed(Integer.MAX_VALUE);
+          }
+      }
+  }
+  
+  /** Method to set the green to max */
+  public void maxGreen()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for(Pixel[] pixelArray: pixels)
+      {
+          for(Pixel pixel : pixelArray)
+          {
+              pixel.setGreen(Integer.MAX_VALUE);
+          }
+      }
+  }
 
   /** Method to set the red and green to 0 */
   public void keepOnlyBlue()
@@ -140,6 +264,8 @@ public class Picture extends SimplePicture
       }
     }
   }
+  
+  
 
   /** To negate a picture,
    * set the red value to 255 minus the current red value,
@@ -187,12 +313,13 @@ public class Picture extends SimplePicture
     {
       for(Pixel column: row)
       {
-        if(column.getRed() > 23)
-        {
-          column.setBlue(column.getBlue()-(column.getBlue()/10));
-          column.setGreen(column.getGreen()-(column.getGreen()/10));
-          //column.setRed(column.getRed()+20);
-        }
+          column.setBlue(column.getBlue()-50);
+//        if(column.getRed() > 23)
+//        {
+//          column.setBlue(column.getBlue()-(column.getBlue()/10));
+//          column.setGreen(column.getGreen()-(column.getGreen()/10));
+//          //column.setRed(column.getRed()+20);
+//        }
         //int blue = column.getBlue()/2;
         //column.setBlue(blue);
       }
@@ -252,7 +379,7 @@ public class Picture extends SimplePicture
     int half = pixels.length / 2;
     for (int row = 0; row < half; row++) {
       for (int column = 0; column < pixels[row].length; column++) {
-        if (pixels.length % 2 == 0) {
+        if (pixels.length % 2 == 0) {// even 
           bottomPixel = pixels[half - row + (half - 1)][column];
         } else {
           bottomPixel = pixels[half - row + half][column];
@@ -322,7 +449,37 @@ public class Picture extends SimplePicture
       }
     }
   }
+  
+  public void fourWayMirror()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel topLeft = null;
+      Pixel topRight = null;
+      Pixel bottomLeft = null;
+      Pixel bottomRight = null;
+      
+      int width = pixels[0].length;
+      int height = pixels.length;
+      
+      for(int row = 0; row<height / 2; row ++)
+      {
+          for(int col = 0; col < width/2; col++)
+          {
+              topLeft = pixels[row][col];
+              topRight = pixels[row][width-col-1];
+              bottomLeft = pixels[height-row-1][col];
+              bottomRight = pixels[height-row-1][width-col-1];
+              
+              topRight.setColor(topLeft.getColor());
+              bottomLeft.setColor(topLeft.getColor());
+              bottomRight.setColor(topLeft.getColor());
+          }
+      }
+       
+       
+  }
 
+  
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -389,6 +546,36 @@ public class Picture extends SimplePicture
       }
     }
 
+  }
+  
+  
+  public void glitch()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      int randomRow = (int) (Math.random()* pixels.length);
+      int randomCol = (int) (Math.random()*pixels[0].length);
+      
+      int startRow = (int) (Math.random() * randomRow);
+      int startCol = (int) (Math.random() * randomCol);
+      
+      for(int row = startRow; row< randomRow; row++)
+      {
+          for(int col = startCol; col<randomCol; col++)
+          {
+              int red = (int) (Math.random()* 256);
+              int green = (int)(Math.random()*256);
+              int blue = (int)(Math.random()*256);
+              Color randomColor = new Color(red,green,blue);
+              
+              pixels[row][col].setColor(randomColor);
+          }
+      }
+      
+      int endRow = (int) (Math.random()*pixels.length);
+      startRow = (int) (Math.random()*endRow);
+      int endCol = (int) (Math.random()*pixels[0].length);
+      startCol = (int) (Math.random()* endCol);
+      zeroGreen(startRow,startCol,endRow,endCol);
   }
 
   /** copy from the passed fromPic to the
@@ -598,12 +785,12 @@ public class Picture extends SimplePicture
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
-  public static void main(String[] args) 
-  {
-    Picture beach = new Picture("whiteFlower.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
-  }
+//  public static void main(String[] args) 
+//  {
+//    Picture beach = new Picture("whiteFlower.jpg");
+//    beach.explore();
+//    beach.zeroBlue();
+//    beach.explore();
+//  }
   
 } // this } is the end of class Picture, put all new methods before this

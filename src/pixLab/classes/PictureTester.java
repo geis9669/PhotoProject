@@ -17,6 +17,24 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
+  
+  /** Method to test zeroRed*/
+  public static void testZeroRed(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.zeroRed();
+      picture.explore();
+  }
+  
+  /** Method to test zeroGreen*/
+  public static void testZeroGreen(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.zeroGreen();
+      picture.explore();
+  }
 
   /** Method to test keepOnlyBlue */
   public static void testKeepOnlyBlue(String pictureName)
@@ -44,7 +62,34 @@ public class PictureTester
     picture.keepOnlyGreen();
     picture.explore();
   }
+  
+  /** Method to test MaxBlue */
+  public static void testMaxBlue(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.maxBlue();
+      picture.explore();
+  }
+  
+  /** Method to test MaxRed */
+  public static void testMaxRed(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.maxRed();
+      picture.explore();
+  }
 
+  /** Method to test MaxGreen */
+  public static void testMaxGreen(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.maxGreen();
+      picture.explore();
+  }
+  
   /** Method to test negate */
   public static void testNegate(String pictureName)
   {
@@ -199,6 +244,40 @@ public class PictureTester
     swan.edgeDetection3(10);
     swan.explore();
   }
+  
+  public static void testZeroColor(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.keepOnlyBlue();
+      picture.zeroBlue();
+      picture.explore();
+  }
+  
+  public static void testGlitch(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.glitch();
+      picture.explore();
+  }
+  
+  public static void testZero(String pictureName)
+  {
+      Picture zeroGreen = new Picture(pictureName);
+      Picture zeroBlue = new Picture(pictureName);
+      Picture zeroRed = new Picture(pictureName);
+      
+      zeroGreen.explore();
+      
+      zeroGreen.zero(Picture.GREEN, 0, 0, 100, 100);
+      zeroGreen.explore();
+      zeroBlue.zero(Picture.BLUE,  0, 0, 100, 100);
+      zeroBlue.explore();
+      zeroRed.zero(Picture.RED, 0, 0, 325, 213);
+      zeroRed.explore();
+      
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -206,32 +285,45 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    //testZeroBlue("water.jpg");
-    //testKeepOnlyBlue("water.jpg"); // greg
-    //testKeepOnlyRed("water.jpg");//greg
-    //testKeepOnlyGreen("water.jpg");//greg
-    //testNegate("water.jpg");// greg
-    //testGrayscale("water.jpg"); // greg
-    //testFixUnderwater("water.jpg");//greg not done confused
-    //testMirrorVertical();
-    //testMirrorVerticalLeftToRight("water.jpg"); //greg
-    //testMirrorHorizontalTopToBottom("redMotorcycle.jpg");
-    //testMirrorHorizontalBottomToTop("redMotorcycle.jpg"); //greg
-    //testMirrorDiagonal("beach.jpg");
-    //testMirrorTemple();
-    //testMirrorArms(); //greg
-    //testMirrorGull(); //greg
-    //testCopy();
-    //testCollage();
-    //testMyCollage();
-    testEdgeDetection();
-    testEdgeDetection2();// greg
-    testEdgeDetection3(); //greg
-    //testChromakey();
-    //testEncodeAndDecode();
-    //testGetCountRedOverValue(250);
-    //testSetRedToHalfValueInTopHalf();
-    //testClearBlueOverValue(200);
-    //testGetAverageForColumn(0);
+      String picture = "water.jpg";//beach.jpg";
+//    testZeroBlue("koala.jpg");
+//    testZeroRed("koala.jpg"); // greg
+//    testZeroGreen("koala.jpg");// greg
+      
+//      testMaxBlue(picture); // greg
+//      testMaxRed(picture);// greg
+//      testMaxGreen(picture);// greg
+//    testKeepOnlyBlue(picture); // greg
+//    testKeepOnlyRed(picture);//greg
+//    testKeepOnlyGreen(picture);//greg
+//    testNegate(picture);// greg
+//    testGrayscale(picture); // greg
+//    testFixUnderwater("water.jpg");//greg not done confused
+//    testMirrorVertical();
+//    testMirrorVerticalLeftToRight("water.jpg"); //greg
+//    testMirrorHorizontalTopToBottom("redMotorcycle.jpg");
+//    testMirrorHorizontalBottomToTop("redMotorcycle.jpg"); //greg
+//    testMirrorDiagonal("beach.jpg");
+//    testMirrorTemple();
+//    testMirrorArms(); //greg
+//    testMirrorGull(); //greg
+//    testCopy();
+//    testCollage();
+//    testMyCollage();
+//    testEdgeDetection();
+//    testEdgeDetection2();// greg
+//    testEdgeDetection3(); //greg
+    
+//    testZeroColor(picture);
+    
+//    testChromakey();
+//    testEncodeAndDecode();
+//    testGetCountRedOverValue(250);
+//    testSetRedToHalfValueInTopHalf();
+//    testClearBlueOverValue(200);
+//    testGetAverageForColumn(0);
+      
+//      testGlitch(picture);
+      testZero(picture);
   }
 }
