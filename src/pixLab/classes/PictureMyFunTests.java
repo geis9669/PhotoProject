@@ -10,16 +10,19 @@ public class PictureMyFunTests
     
     public static void main(String[] args)
     {
-        List<Method> methodsToCall = getMethods();
-        printMethods(methodsToCall);
-        
+        ArrayList<Method> methodsToCall = (ArrayList<Method>) getMethods();
+        // may need to sort the list just so it will work properly
         originalPicture.explore();
         
         methodsToCall.add(null);
         methodsToCall.add(null);
         methodsToCall.add(null);
-        
+
+        printMethods(methodsToCall);
+
         List<Method[]> combinationMethods = getCombinations(methodsToCall);
+
+        printMethods(combinationMethods);
         
         callCombinationMethods(combinationMethods);
         
