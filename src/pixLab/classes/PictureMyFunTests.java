@@ -100,12 +100,41 @@ public class PictureMyFunTests
     /*
      * this will print all thats in the list to the display
      */
-    private static void printMethods(List<Method> list)
+    private static void printMethods(ArrayList<Method> list)
     {
+        String message = "";
         for(Method print:list)
         {
-            displayMessage(print.getName());
+            if(print!= null) {
+                message += print.getName() + "\n";
+                //displayMessage(print.getName());
+            }else{
+                message += "null \n";
+                //displayMessage("null");
+            }
         }
+        displayMessage(message);
+    }
+
+
+    private static void printMethods(List<Method[]> list)
+    {
+        String message = "";
+        for(Method[] methods: list)
+        {
+            for(Method method: methods)
+            {
+                if(method!=null)
+                {
+                    message += method.getName();
+                }else {
+                    message += "null";
+                }
+                message+= ", ";
+            }
+            message+="\n";
+        }
+        displayMessage(message);
     }
     
     //extract all the methods that I want to do
