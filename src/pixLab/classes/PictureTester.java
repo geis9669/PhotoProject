@@ -345,14 +345,15 @@ public class PictureTester
     
 //    testZeroColor(picture);
     
-    testChromakey(picture, picture2);
+//    testChromakey(picture, picture2); //greg
+      
 //    testEncodeAndDecode();
 //    testGetCountRedOverValue(250);
 //    testSetRedToHalfValueInTopHalf();
 //    testClearBlueOverValue(200);
 //    testGetAverageForColumn(0);
       
-//      testGlitch(picture);
+      testGlitch(picture);
 //      testZero(picture);
       
   }
