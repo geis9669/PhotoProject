@@ -1,4 +1,7 @@
 package pixLab.classes;
+
+import java.awt.Color;
+
 /**
  * This class contains class (static) methods
  * that will help you test the Picture class 
@@ -278,6 +281,31 @@ public class PictureTester
       zeroRed.explore();
       
   }
+  
+  public static void testChromakey(String pictureName, String pictureNameBackGround)
+  {
+      Picture foreground = new Picture(pictureName);
+      Picture background = new Picture(pictureNameBackGround);
+      
+      foreground.explore();
+      background.explore();
+      
+      foreground.chromakey(background, new Color(16,30,50), 30);
+      foreground.explore();
+  }
+  
+  public static void chromakeyPictureGood()
+  {
+      Picture foreground = new Picture("");
+      Picture background = new Picture("");
+      
+      foreground.explore();
+      background.explore();
+      
+      foreground.chromakey(background, new Color(16,30,50), 30);
+      foreground.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -285,7 +313,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-      String picture = "water.jpg";//beach.jpg";
+      String picture = "blue-mark.jpg";//beach.jpg";
+      String picture2 = "moon-surface.jpg";
 //    testZeroBlue("koala.jpg");
 //    testZeroRed("koala.jpg"); // greg
 //    testZeroGreen("koala.jpg");// greg
@@ -316,7 +345,7 @@ public class PictureTester
     
 //    testZeroColor(picture);
     
-//    testChromakey();
+    testChromakey(picture, picture2);
 //    testEncodeAndDecode();
 //    testGetCountRedOverValue(250);
 //    testSetRedToHalfValueInTopHalf();
@@ -324,6 +353,7 @@ public class PictureTester
 //    testGetAverageForColumn(0);
       
 //      testGlitch(picture);
-      testZero(picture);
+//      testZero(picture);
+      
   }
 }
