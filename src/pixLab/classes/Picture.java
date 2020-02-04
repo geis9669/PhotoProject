@@ -145,6 +145,11 @@ public class Picture extends SimplePicture
       }
   }
   
+  public void zero(int color)
+  {
+      zero(color, 0, 0, this.getPixels2D().length, this.getPixels2D()[0].length);
+  }
+  
   /** Method to set the green to 0*/
   public void zeroGreen()
   {
