@@ -782,19 +782,30 @@ public class Picture extends SimplePicture
   }
   
   
-  public void chromakey(Picture backGround)
+  public void chromakey(Picture backGround, Color backGroundColor, int howClose)
   {
-      chromakey(backGround, 0,0);
+      chromakey(backGround, backGroundColor, howClose, 0,0);
   }
   
-  public void chromakey(Picture background, int rowOffset, int colOffset)
+  public void chromakey(Picture background, Color backGroundColor, int howClose, int rowOffset, int colOffset)
   {
       Pixel[][] pixelsForeground = this.getPixels2D();
       Pixel[][] pixelsBackground = background.getPixels2D();
       
-      if(pixelsForeground.length > pixelsBackground.length)
+      if(pixelsForeground.length <= pixelsBackground.length-rowOffset && pixelsForeground[0].length <= pixelsBackground[0].length-colOffset)
       {
-          
+          for(int row = 0; row<pixelsForeground.length; row++)
+          {
+              for(int col = 0; col<pixelsForeground[0].length; col++)
+              {   
+                  if(pixelsForeground[row][col].colorDistance(backGroundColor) <= howClose)
+                  {
+                      pixelsForeground[row][col].setColor(pixelsBackground[row+rowOffset][col+colOffset].getColor());
+                  }
+                  
+                  
+              }
+          }
       }
       
   }
