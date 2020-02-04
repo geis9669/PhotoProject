@@ -590,6 +590,8 @@ public class Picture extends SimplePicture
       int startRow = (int) (Math.random()*pixels.length);
       int endRow = (int) (Math.random()* (pixels.length-startRow) )+startRow;
       
+      int shift = (int) (Math.random()* pixels.length*2)-pixels.length;
+      
       for(int row = startRow; row< endRow; row++)
       {
           
