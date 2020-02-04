@@ -582,6 +582,21 @@ public class Picture extends SimplePicture
       startCol = (int) (Math.random()* endCol);
       zeroGreen(startRow,startCol,endRow,endCol);
   }
+  
+  public void glitch2()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      
+      int startRow = (int) (Math.random()*pixels.length);
+      int endRow = (int) (Math.random()* (pixels.length-startRow) )+startRow;
+      
+      for(int row = startRow; row< endRow; row++)
+      {
+          
+      }
+      
+      
+  }
 
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
