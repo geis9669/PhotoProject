@@ -11,9 +11,40 @@ public class PictureMyFunTests
     public static void main(String[] args)
     {
         ArrayList<Method> methodsToCall = (ArrayList<Method>) getMethods();
-        // may need to sort the list just so it will work properly
+
         originalPicture.explore();
-        
+        // may need to sort the list just so it will work properly
+        for(int index = 0; index<methodsToCall.size(); index++) {
+            Method methodToSort = methodsToCall.get(index);
+            if(methodToSort.getName().contains("Red") && index % 3 != 0) {
+                for(int redIndex = (index/3)*3+0; redIndex < methodsToCall.size(); redIndex += 3) {
+                    if(!(methodsToCall.get(redIndex).getName().contains("Red"))) {
+                        methodsToCall.set(index, methodsToCall.get(redIndex));
+                        methodsToCall.set(redIndex, methodToSort);
+                    }
+                }
+            }
+            else if(methodToSort.getName().contains("Green") && index % 3 != 1)
+            {
+                for(int redIndex = (index/3)*3+1; redIndex < methodsToCall.size(); redIndex += 3) {
+                    if(!(methodsToCall.get(redIndex).getName().contains("Green"))) {
+                        methodsToCall.set(index, methodsToCall.get(redIndex));
+                        methodsToCall.set(redIndex, methodToSort);
+                    }
+                }
+            }
+            else if(methodToSort.getName().contains("Blue") && index%3 != 2)
+            {
+                for(int redIndex = (index/3)*3+2; redIndex < methodsToCall.size(); redIndex += 3) {
+                    if(!(methodsToCall.get(redIndex).getName().contains("Blue"))) {
+                        methodsToCall.set(index, methodsToCall.get(redIndex));
+                        methodsToCall.set(redIndex, methodToSort);
+                    }
+                }
+            }
+
+        }
+
         methodsToCall.add(null);
         methodsToCall.add(null);
         methodsToCall.add(null);
