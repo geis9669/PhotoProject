@@ -127,11 +127,11 @@ public class PictureMyFunTests
 
     public static ArrayList<Method[]> getCombinations(ArrayList<Method> list, int groupSize)
     {
-        return getCombinations(list, groupSize, 1);
+        return getCombinations(list, groupSize, 1, null);
     }
 
     // does it need to be a list of method could it just be a list?
-    private static ArrayList<Method[]> getCombinations(ArrayList<Method> list, int groupSize, int loop)
+    private static ArrayList<Method[]> getCombinations(ArrayList<Method> list, int groupSize, int loop, Method[] currentList)
     {
         List<Method[]> results = new ArrayList<>();
 
@@ -140,13 +140,15 @@ public class PictureMyFunTests
             if(loop >= groupSize)
             {
                 Method[] innerList = {list.get(index)};
+                results.add(innerList);
             }
             else
             {
-                Method[] innerList = {list.get(index), getCombinations(list, groupSize, loop + 1)};
+                //Method[] innerList = {list.get(index), getCombinations(list, groupSize, loop + 1)};
             }
         }
 
+        return results;
         // returning the object at the current place
     }
     
