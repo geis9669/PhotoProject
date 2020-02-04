@@ -63,6 +63,11 @@ public class PictureMyFunTests
         
     }
     
+
+    /**
+     * calls the imputed method combinations and prints the results
+     * @param list the list of arrays that have valid methods to call on picture objects.
+     */
     private static void callCombinationMethods(List<Method[]> list)
     {
         
@@ -70,6 +75,7 @@ public class PictureMyFunTests
         {
             Picture myPicture = new Picture(originalPicture.getHeight(),originalPicture.getWidth());
             myPicture.copy(originalPicture, 0, 0);
+            String title = "";
             for(Method toCall : list.get(index))
             {
                 if(toCall != null)
@@ -77,14 +83,21 @@ public class PictureMyFunTests
                     try
                     {
                         toCall.invoke(myPicture);
+                        title += toCall.getName()+", ";
                     }
                     catch(Exception e)
                     {
                         displayMessage(e.getMessage());
                     }
                 }
+                else
+                {
+                    title+="null, ";
+                }
                 
             }
+            title+= " #"+index;
+            myPicture.setTitle(title);
             myPicture.explore();
         }
         
