@@ -62,7 +62,6 @@ public class PictureMyFunTests
         //List<Method> methodCombinations = methodsToCall;
         
     }
-    
 
     /**
      * calls the imputed method combinations and prints the results
@@ -70,7 +69,6 @@ public class PictureMyFunTests
      */
     private static void callCombinationMethods(List<Method[]> list)
     {
-        
         for(int index =0; index<list.size(); index++)
         {
             Picture myPicture = new Picture(originalPicture.getHeight(),originalPicture.getWidth());
@@ -102,7 +100,12 @@ public class PictureMyFunTests
         }
         
     }
-    
+
+    /**
+     * assumes the list is in groups of 3 like red, green, blue then repeats
+     * @param list the list to make combinations out of.
+     * @return the list of arrays that are the combinations.
+     */
     private static List<Method[]> getCombinations(List<Method> list)
     {
         //List<List<Method>> results = new ArrayList<>();
@@ -119,8 +122,32 @@ public class PictureMyFunTests
                 }
             }                        
         }
-               
         return results;
+    }
+
+    public static ArrayList<Method[]> getCombinations(ArrayList<Method> list, int groupSize)
+    {
+        return getCombinations(list, groupSize, 1);
+    }
+
+    // does it need to be a list of method could it just be a list?
+    private static ArrayList<Method[]> getCombinations(ArrayList<Method> list, int groupSize, int loop)
+    {
+        List<Method[]> results = new ArrayList<>();
+
+        for(int index = loop-1; index<list.size(); index+= groupSize )
+        {
+            if(loop >= groupSize)
+            {
+                Method[] innerList = {list.get(index)};
+            }
+            else
+            {
+                Method[] innerList = {list.get(index), getCombinations(list, groupSize, loop + 1)};
+            }
+        }
+
+        // returning the object at the current place
     }
     
     
