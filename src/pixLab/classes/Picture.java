@@ -782,6 +782,24 @@ public class Picture extends SimplePicture
   }
   
   
+  public void chromakey(Picture backGround)
+  {
+      chromakey(backGround, 0,0);
+  }
+  
+  public void chromakey(Picture background, int rowOffset, int colOffset)
+  {
+      Pixel[][] pixelsForeground = this.getPixels2D();
+      Pixel[][] pixelsBackground = background.getPixels2D();
+      
+      if(pixelsForeground.length > pixelsBackground.length)
+      {
+          
+      }
+      
+  }
+  
+  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
