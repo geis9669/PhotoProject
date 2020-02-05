@@ -12,7 +12,10 @@ public class PictureMyFunTests
     {
         ArrayList<Method> methodsToCall = (ArrayList<Method>) getMethods();
 
-        originalPicture.explore();
+        //originalPicture.explore();
+
+        printMethods(methodsToCall);
+        displayMessage("\n");
         // may need to sort the list just so it will work properly
         for(int index = 0; index<methodsToCall.size(); index++) {
             Method methodToSort = methodsToCall.get(index);
@@ -51,11 +54,11 @@ public class PictureMyFunTests
 
         printMethods(methodsToCall);
 
-        List<Method[]> combinationMethods = getCombinations(methodsToCall);
+        List<Method[]> combinationMethods = getCombinations(methodsToCall, 3);
 
         printMethods(combinationMethods);
         
-        callCombinationMethods(combinationMethods);
+        //callCombinationMethods(combinationMethods);
         
 //        callMethods(methodsToCall);
         
