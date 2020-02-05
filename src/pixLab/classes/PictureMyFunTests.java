@@ -127,27 +127,29 @@ public class PictureMyFunTests
 
     public static ArrayList<Method[]> getCombinations(ArrayList<Method> list, int groupSize)
     {
-        return getCombinations(list, groupSize, 1, null);
+        return getCombinations(list, groupSize, 1, new Method[groupSize]);
     }
 
     // does it need to be a list of method could it just be a list?
     private static ArrayList<Method[]> getCombinations(ArrayList<Method> list, int groupSize, int loop, Method[] currentList)
     {
-        List<Method[]> results = new ArrayList<>();
+        ArrayList<Method[]> results = new ArrayList<>();
 
         for(int index = loop-1; index<list.size(); index+= groupSize )
         {
             if(loop >= groupSize)
             {
-                Method[] innerList = {list.get(index)};
-                results.add(innerList);
+                //loop -1 tells me the place where I put the item.
+                currentList[loop-1] = list.get(index);
+                results.add(currentList.clone());// should be a copy of the array.
             }
             else
             {
+                currentList[loop-1] = list.get(index);
+                results.addAll(getCombinations(list,groupSize,loop+1,currentList));
                 //Method[] innerList = {list.get(index), getCombinations(list, groupSize, loop + 1)};
             }
         }
-
         return results;
         // returning the object at the current place
     }
