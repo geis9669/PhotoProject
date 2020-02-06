@@ -17,39 +17,39 @@ public class PictureMyFunTests
         printMethods(methodsToCall);
         displayMessage("\n");
         // may need to sort the list just so it will work properly
-        for(int index = 0; index<methodsToCall.size(); index++) {
-            Method methodToSort = methodsToCall.get(index);
-            if(methodToSort.getName().contains("Red") && index % 3 != 0) {
-                for(int redIndex = 0; redIndex < methodsToCall.size(); redIndex += 3) {
-                    //(index/3)*3+
-                    if(!(methodsToCall.get(redIndex).getName().contains("Red"))) {
-                        methodsToCall.set(index, methodsToCall.get(redIndex));
-                        methodsToCall.set(redIndex, methodToSort);
-                    }
-                }
-            }
-            else if(methodToSort.getName().contains("Green") && index % 3 != 1)
-            {
-                for(int redIndex = 1; redIndex < methodsToCall.size(); redIndex += 3) {
-                    //(index/3)*3+
-                    if(!(methodsToCall.get(redIndex).getName().contains("Green"))) {
-                        methodsToCall.set(index, methodsToCall.get(redIndex));
-                        methodsToCall.set(redIndex, methodToSort);
-                    }
-                }
-            }
-            else if(methodToSort.getName().contains("Blue") && index%3 != 2)
-            {
-                for(int redIndex = 2; redIndex < methodsToCall.size(); redIndex += 3) {
-                    //(index/3)*3+
-                    if(!(methodsToCall.get(redIndex).getName().contains("Blue"))) {
-                        methodsToCall.set(index, methodsToCall.get(redIndex));
-                        methodsToCall.set(redIndex, methodToSort);
-                    }
-                }
-            }
-
-        }
+//        for(int index = 0; index<methodsToCall.size(); index++) {
+//            Method methodToSort = methodsToCall.get(index);
+//            if(methodToSort.getName().contains("Red") && index % 3 != 0) {
+//                for(int redIndex = 0; redIndex < methodsToCall.size(); redIndex += 3) {
+//                    //(index/3)*3+
+//                    if(!(methodsToCall.get(redIndex).getName().contains("Red"))) {
+//                        methodsToCall.set(index, methodsToCall.get(redIndex));
+//                        methodsToCall.set(redIndex, methodToSort);
+//                    }
+//                }
+//            }
+//            else if(methodToSort.getName().contains("Green") && index % 3 != 1)
+//            {
+//                for(int redIndex = 1; redIndex < methodsToCall.size(); redIndex += 3) {
+//                    //(index/3)*3+
+//                    if(!(methodsToCall.get(redIndex).getName().contains("Green"))) {
+//                        methodsToCall.set(index, methodsToCall.get(redIndex));
+//                        methodsToCall.set(redIndex, methodToSort);
+//                    }
+//                }
+//            }
+//            else if(methodToSort.getName().contains("Blue") && index%3 != 2)
+//            {
+//                for(int redIndex = 2; redIndex < methodsToCall.size(); redIndex += 3) {
+//                    //(index/3)*3+
+//                    if(!(methodsToCall.get(redIndex).getName().contains("Blue"))) {
+//                        methodsToCall.set(index, methodsToCall.get(redIndex));
+//                        methodsToCall.set(redIndex, methodToSort);
+//                    }
+//                }
+//            }
+//
+//        }
 
         methodsToCall.add(null);
         methodsToCall.add(null);
@@ -61,7 +61,7 @@ public class PictureMyFunTests
 
         printMethods(combinationMethods);
         
-        //callCombinationMethods(combinationMethods);
+        callCombinationMethods(combinationMethods);
         
 //        callMethods(methodsToCall);
         
