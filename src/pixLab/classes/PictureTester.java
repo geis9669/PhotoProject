@@ -265,6 +265,14 @@ public class PictureTester
       picture.explore();
   }
   
+  public static void testGlitch2(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.horizontalShift();
+      picture.explore();
+  }
+  
   public static void testZero(String pictureName)
   {
       Picture zeroGreen = new Picture(pictureName);
@@ -305,6 +313,15 @@ public class PictureTester
       foreground.chromakey(background, new Color(16,30,50), 30);
       foreground.explore();
   }
+  
+  public static void testVerticalShift(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.verticalShift(200, 5, 232);
+      picture.explore();
+  }
+  
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -353,8 +370,11 @@ public class PictureTester
 //    testClearBlueOverValue(200);
 //    testGetAverageForColumn(0);
       
-      testGlitch(picture);
+//      testGlitch(picture);
+//      testGlitch2(picture);
 //      testZero(picture);
+      
+      testVerticalShift(picture);
       
   }
 }
