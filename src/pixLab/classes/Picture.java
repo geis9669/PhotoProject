@@ -586,16 +586,72 @@ public class Picture extends SimplePicture
   public void glitch2()
   {
       Pixel[][] pixels = this.getPixels2D();
+      Color[][] shiftPixels = new Color[pixels.length][pixels[0].length];
+      
+      for(int row = 0; row<pixels.length; row++)
+      {
+          for(int col = 0; col< pixels[0].length; col++)
+          {
+              Pixel current = pixels[row][col];
+              shiftPixels[row][col] = new Color(current.getRed(),current.getGreen(),current.getBlue());
+              //shiftPixels[row][col].setColor(pixels[row][col].getColor());          
+          }
+      }
+      
+      int shift = 300;
+      
+      for(int row = 0; row<shiftPixels.length; row++)
+      {
+          for(int  col = 0; col<shiftPixels[0].length; col++)
+          {
+              int nextCol = col + shift;
+              if(nextCol >= pixels[0].length)
+              {
+                  nextCol = nextCol - pixels[0].length;
+              }
+              pixels[row][nextCol].setColor(shiftPixels[row][col]);
+              //pixels[row][col].setBlue(0);
+          }
+      }
+      
+  }
+  
+  public void glitch3()
+  {
+      Pixel[][] pixels = this.getPixels2D();
       
       int startRow = (int) (Math.random()*pixels.length);
       int endRow = (int) (Math.random()* (pixels.length-startRow) )+startRow;
       
-      int shift = (int) (Math.random()* pixels.length*2)-pixels.length;
-      
-      for(int row = startRow; row< endRow; row++)
+      int shift = (int) (Math.random()* pixels.length);//-pixels.length;
+         
+      Color[][] shiftPixels = new Color[pixels.length][pixels[0].length];
+      for(int row = 0; row<pixels.length; row++)
       {
-          
+          for(int col = 0; col< pixels[0].length; col++)
+          {
+              Pixel current = pixels[row][col];
+              shiftPixels[row][col] = new Color(current.getRed(),current.getGreen(),current.getBlue());     
+          }
       }
+      
+      
+      for(int row = startRow; row<endRow; row++)
+      {
+          for(int  col = 0; col<shiftPixels[0].length; col++)
+          {
+              int nextCol = col + shift;
+              if(nextCol >= pixels[0].length)
+              {
+                  nextCol = nextCol - pixels[0].length;
+              }
+              pixels[row][nextCol].setColor(shiftPixels[row][col]);
+              //pixels[row][col].setBlue(0);
+          }
+      }
+              
+          
+      
       
       
   }
