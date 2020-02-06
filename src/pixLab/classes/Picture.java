@@ -583,7 +583,7 @@ public class Picture extends SimplePicture
       zeroGreen(startRow,startCol,endRow,endCol);
   }
   
-  public void glitch2()
+  public void horizontalShift()
   {
       Pixel[][] pixels = this.getPixels2D();
       Color[][] shiftPixels = new Color[pixels.length][pixels[0].length];
@@ -598,7 +598,7 @@ public class Picture extends SimplePicture
           }
       }
       
-      int shift = 300;
+      int shift = -300;
       
       for(int row = 0; row<shiftPixels.length; row++)
       {
@@ -609,11 +609,94 @@ public class Picture extends SimplePicture
               {
                   nextCol = nextCol - pixels[0].length;
               }
+              if(nextCol < 0)
+              {
+                  nextCol = pixels[0].length + nextCol;
+              }
               pixels[row][nextCol].setColor(shiftPixels[row][col]);
               //pixels[row][col].setBlue(0);
           }
-      }
+      } 
+  }
+  
+  public void horizontalShift(int shiftAmount, int startRow, int endRow)
+  {
+      Pixel[][] pixels = this.getPixels2D();
       
+      if(startRow < endRow && startRow>-1&&endRow<pixels.length)
+      {
+          if(shiftAmount < pixels[0].length && shiftAmount > pixels[0].length*-1)
+          {
+              
+              Color[][] shiftPixels = new Color[pixels.length][pixels[0].length];
+              
+              for(int row = 0; row<pixels.length; row++)
+              {
+                  for(int col = 0; col< pixels[0].length; col++)
+                  {
+                      Pixel current = pixels[row][col];
+                      shiftPixels[row][col] = new Color(current.getRed(),current.getGreen(),current.getBlue());
+                  }
+              }
+              
+              for(int row = startRow; row<endRow; row++)
+              {
+                  for(int  col = 0; col<shiftPixels[0].length; col++)
+                  {
+                      int nextCol = col + shiftAmount;
+                      if(nextCol >= pixels[0].length)
+                      {
+                          nextCol = nextCol - pixels[0].length;
+                      }
+                      if(nextCol < 0)
+                      {
+                          nextCol = pixels[0].length + nextCol;
+                      }
+                      pixels[row][nextCol].setColor(shiftPixels[row][col]);
+                  }
+              }                           
+          }
+      }
+  }
+  
+  public void verticalShift(int shiftAmount, int startCol, int endCol)
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      
+      if(startCol < endCol && startCol>-1&&endCol<pixels[0].length)
+      {
+          if(shiftAmount < pixels.length && shiftAmount > pixels.length*-1)
+          {
+              
+              Color[][] shiftPixels = new Color[pixels.length][pixels[0].length];
+              
+              for(int row = 0; row<pixels.length; row++)
+              {
+                  for(int col = 0; col< pixels[0].length; col++)
+                  {
+                      Pixel current = pixels[row][col];
+                      shiftPixels[row][col] = new Color(current.getRed(),current.getGreen(),current.getBlue());
+                  }
+              }
+              
+              for(int row = 0; row<shiftPixels.length; row++)
+              {
+                  for(int  col = startCol; col<endCol; col++)
+                  {
+                      int nextRow = row + shiftAmount;
+                      if(nextRow >= pixels[0].length)
+                      {
+                          nextRow = nextRow - pixels.length;
+                      }
+                      if(nextRow < 0)
+                      {
+                          nextRow = pixels.length + nextRow;
+                      }
+                      pixels[nextRow][col].setColor(shiftPixels[row][col]);
+                  }
+              }                           
+          }
+      }
   }
   
   public void glitch3()
@@ -623,7 +706,7 @@ public class Picture extends SimplePicture
       int startRow = (int) (Math.random()*pixels.length);
       int endRow = (int) (Math.random()* (pixels.length-startRow) )+startRow;
       
-      int shift = (int) (Math.random()* pixels.length);//-pixels.length;
+      int shift = (int) (Math.random()* pixels.length*2);//-pixels.length;
          
       Color[][] shiftPixels = new Color[pixels.length][pixels[0].length];
       for(int row = 0; row<pixels.length; row++)
@@ -649,10 +732,6 @@ public class Picture extends SimplePicture
               //pixels[row][col].setBlue(0);
           }
       }
-              
-          
-      
-      
       
   }
 
