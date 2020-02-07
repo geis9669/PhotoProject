@@ -271,6 +271,8 @@ public class PictureTester
       picture.explore();
       picture.glitch3();
       picture.explore();
+      picture.edgeDetection2(30);
+      picture.explore();
   }
   
   public static void testZero(String pictureName)
@@ -338,7 +340,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-      String picture = "blue-mark.jpg";//beach.jpg";
+//      String picture = "blue-mark.jpg";//beach.jpg";
+      String picture = "beach.jpg";
       String picture2 = "moon-surface.jpg";
 //    testZeroBlue("koala.jpg");
 //    testZeroRed("koala.jpg"); // greg
@@ -379,7 +382,7 @@ public class PictureTester
 //    testGetAverageForColumn(0);
       
 //      testGlitch(picture);
-//      testGlitch2(picture);
+      testGlitch3(picture);
 //      testZero(picture);
       
 //      testVerticalShift(picture);
