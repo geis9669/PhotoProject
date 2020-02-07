@@ -269,10 +269,12 @@ public class PictureTester
   {
       Picture picture = new Picture(pictureName);
       picture.explore();
-      picture.glitch3(15000);
+      picture.glitch3();
       picture.explore();
+      picture.write("GregoryGlitch");
       picture.edgeDetection2(30);
       picture.explore();
+      picture.write("GregoryGlitchEdgeDetection");
   }
   
   public static void testZero(String pictureName)
