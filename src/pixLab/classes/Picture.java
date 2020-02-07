@@ -714,7 +714,7 @@ public class Picture extends SimplePicture
   public void glitch3() {
       Pixel[][] pixels = this.getPixels2D();
 
-      int options = 2;
+      int options = 3;
 
       int changes = (int) (Math.random() * (100/2))+5;
       for(int time = 0; time <= changes; time++)
@@ -733,6 +733,10 @@ public class Picture extends SimplePicture
               int endCol = (int) (Math.random()*(pixels[0].length-startCol))+startCol;
               int shift = (int) (Math.random()*(pixels[0].length*2));
               verticalShift(shift,startCol,endCol);
+          }
+          else if(randomChange == 2)
+          {
+              mirrorDiagonal();
           }
 //          int startRow = (int) (Math.random()*pixels.length);
 //          int endRow = (int) (Math.random()* (pixels.length-startRow) )+startRow;
