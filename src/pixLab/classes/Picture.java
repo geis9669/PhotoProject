@@ -618,7 +618,13 @@ public class Picture extends SimplePicture
           }
       } 
   }
-  
+
+    /**
+     * moves pixels in the rows left or right, by the specified amount
+     * @param shiftAmount the amount of pixels you want each moved
+     * @param startRow what row to start on
+     * @param endRow what row to end right before doing.
+     */
   public void horizontalShift(int shiftAmount, int startRow, int endRow)
   {
       Pixel[][] pixels = this.getPixels2D();
@@ -937,13 +943,26 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
-  
+
+    /**
+     * replaces the back ground of the current picture with a different picture
+     * @param backGround the picture to put behind the top picture. needs to be as big as the picture this is called on
+     * @param backGroundColor the color to look for in the picture
+     * @param howClose how close the color its looking at is to the color you specified
+     */
   public void chromakey(Picture backGround, Color backGroundColor, int howClose)
   {
       chromakey(backGround, backGroundColor, howClose, 0,0);
   }
-  
+
+    /**
+     * replaces the back ground of the current picture with a different picture
+     * @param background the picture to put behind the top picture. needs to be as big as the picture this is called on
+     * @param backGroundColor the color to look for in the picture
+     * @param howClose how close the color its looking at is to the color you specified
+     * @param rowOffset what row to start copying from the background
+     * @param colOffset what col to start copying from the background
+     */
   public void chromakey(Picture background, Color backGroundColor, int howClose, int rowOffset, int colOffset)
   {
       Pixel[][] pixelsForeground = this.getPixels2D();
