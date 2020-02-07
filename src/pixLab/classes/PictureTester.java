@@ -269,7 +269,7 @@ public class PictureTester
   {
       Picture picture = new Picture(pictureName);
       picture.explore();
-      picture.glitch3();
+      picture.glitch3(15000);
       picture.explore();
       picture.edgeDetection2(30);
       picture.explore();
