@@ -265,11 +265,11 @@ public class PictureTester
       picture.explore();
   }
   
-  public static void testGlitch2(String pictureName)
+  public static void testGlitch3(String pictureName)
   {
       Picture picture = new Picture(pictureName);
       picture.explore();
-      picture.horizontalShift();
+      picture.glitch3();
       picture.explore();
   }
   
@@ -310,7 +310,7 @@ public class PictureTester
       foreground.explore();
       background.explore();
       
-      foreground.chromakey(background, new Color(16,30,50), 30);
+      foreground.chromakey(background, new Color(8, 19,50), 30);
       foreground.explore();
   }
   
@@ -319,6 +319,14 @@ public class PictureTester
       Picture picture = new Picture(pictureName);
       picture.explore();
       picture.verticalShift(200, 5, 232);
+      picture.explore();
+  }
+
+  public static void testHorizontalShift(String pictureName)
+  {
+      Picture picture = new Picture(pictureName);
+      picture.explore();
+      picture.horizontalShift(200, 5, 232);
       picture.explore();
   }
   
@@ -374,7 +382,8 @@ public class PictureTester
 //      testGlitch2(picture);
 //      testZero(picture);
       
-      testVerticalShift(picture);
+//      testVerticalShift(picture);
+//      testHorizontalShift(picture);
       
   }
 }
