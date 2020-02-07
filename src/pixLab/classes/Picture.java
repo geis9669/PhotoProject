@@ -711,40 +711,34 @@ public class Picture extends SimplePicture
       }
   }
   
-  public void glitch3()
-  {
+  public void glitch3() {
       Pixel[][] pixels = this.getPixels2D();
-      
-      int startRow = (int) (Math.random()*pixels.length);
-      int endRow = (int) (Math.random()* (pixels.length-startRow) )+startRow;
-      
-      int shift = (int) (Math.random()* pixels.length*2);//-pixels.length;
-         
-      Color[][] shiftPixels = new Color[pixels.length][pixels[0].length];
-      for(int row = 0; row<pixels.length; row++)
+
+      int options = 2;
+
+      int changes = (int) (Math.random() * (100/2))+5;
+      for(int time = 0; time <= changes; time++)
       {
-          for(int col = 0; col< pixels[0].length; col++)
+          int randomChange = (int)(Math.random()*options);
+          if(randomChange == 0)
           {
-              Pixel current = pixels[row][col];
-              shiftPixels[row][col] = new Color(current.getRed(),current.getGreen(),current.getBlue());     
+              int startRow = (int) (Math.random()*pixels.length);
+              int endRow = (int) (Math.random()* (pixels.length-startRow) )+startRow;
+              int shift = (int) (Math.random()* (pixels.length*2));//-pixels.length;
+              horizontalShift(shift,startRow,endRow);
           }
-      }
-      
-      
-      for(int row = startRow; row<endRow; row++)
-      {
-          for(int  col = 0; col<shiftPixels[0].length; col++)
+          else if(randomChange == 1)
           {
-              int nextCol = col + shift;
-              if(nextCol >= pixels[0].length)
-              {
-                  nextCol = nextCol - pixels[0].length;
-              }
-              pixels[row][nextCol].setColor(shiftPixels[row][col]);
-              //pixels[row][col].setBlue(0);
+              int startCol = (int) (Math.random()*pixels[0].length);
+              int endCol = (int) (Math.random()*(pixels[0].length-startCol))+startCol;
+              int shift = (int) (Math.random()*(pixels[0].length*2));
+              verticalShift(shift,startCol,endCol);
           }
+//          int startRow = (int) (Math.random()*pixels.length);
+//          int endRow = (int) (Math.random()* (pixels.length-startRow) )+startRow;
+//
+//          int shift = (int) (Math.random()* pixels.length*2);//-pixels.length;
       }
-      
   }
 
   /** copy from the passed fromPic to the
