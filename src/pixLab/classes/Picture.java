@@ -664,7 +664,13 @@ public class Picture extends SimplePicture
           }
       }
   }
-  
+
+    /**
+     * moves a set of pixels in the rows up or down and it wraps it.
+     * @param shiftAmount how many pixels to move them by
+     * @param startCol where to start the pixels that will move
+     * @param endCol where to end the pixels that will move, this will be one less then the number.
+     */
   public void verticalShift(int shiftAmount, int startCol, int endCol)
   {
       Pixel[][] pixels = this.getPixels2D();
@@ -685,12 +691,12 @@ public class Picture extends SimplePicture
                   }
               }
               
-              for(int row = 0; row<shiftPixels.length; row++)
+              for(int col = startCol; col<endCol; col++)
               {
-                  for(int  col = startCol; col<endCol; col++)
+                  for(int row = 0; row<shiftPixels.length; row++)
                   {
                       int nextRow = row + shiftAmount;
-                      if(nextRow >= pixels[0].length)
+                      if(nextRow >= pixels.length)
                       {
                           nextRow = nextRow - pixels.length;
                       }
