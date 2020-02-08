@@ -128,6 +128,12 @@ public class PictureMyFunTests
         return results;
     }
 
+    /**
+     * this will get all the combinations of the items in the list of the groupSize
+     * @param list the list that has repeating values to make combinations of
+     * @param groupSize how big the groups are
+     * @return the combinations it found
+     */
     public static ArrayList<Method[]> getCombinations(ArrayList<Method> list, int groupSize)
     {
         return getCombinations(list, groupSize, 1, new Method[groupSize]);
@@ -198,6 +204,10 @@ public class PictureMyFunTests
     }
 
 
+    /**
+     * this will print all the methods in the array
+     * @param list the arrays of Method objects you want printed.
+     */
     private static void printMethods(List<Method[]> list)
     {
         String message = "";
