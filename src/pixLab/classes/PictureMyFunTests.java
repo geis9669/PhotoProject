@@ -34,6 +34,39 @@ public class PictureMyFunTests
     }
 
     /**
+     * this sorts the things in the method list if they contain a string in message and it is a pattern
+     * @param list the list you want sorted
+     * @param categories the things you want each spot to be at.
+     */
+    private static void sortByGroups(List<Method> list, List<String> categories) {
+        List<Method> newList = new ArrayList<>();
+
+        while(list.size() > 0) {
+            for(int item = 0; item < categories.size(); item++) {
+                int index = 0;
+                boolean found = false;
+
+                while(!found && index < list.size()) {
+                    if(list.get(index).getName().contains(categories.get(item))) {
+                        newList.add(list.remove(index));
+                        found = true;
+                    }
+                    else {
+                        index++;
+                    }
+                }
+
+                if(!found){
+                    newList.addAll(list);
+                    list.clear();
+                }
+            }
+        }
+
+        list.addAll(newList);
+    }
+
+    /**
      * calls the imputed method combinations and prints the results
      * @param list the list of arrays that have valid methods to call on picture objects.
      */
