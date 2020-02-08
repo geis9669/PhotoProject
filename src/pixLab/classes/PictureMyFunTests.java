@@ -17,17 +17,23 @@ public class PictureMyFunTests
         printMethods(methodsToCall);
         displayMessage("\n");
 
-        methodsToCall.add(null);
-        methodsToCall.add(null);
-        methodsToCall.add(null);
+        List<String> catagories = new ArrayList<>();
+        catagories.add("Blue");
+        catagories.add("Green");
+        catagories.add("Red");
+        sortByGroups(methodsToCall, catagories);
 
+        methodsToCall.add(null);
+        methodsToCall.add(null);
+        methodsToCall.add(null);
+        
         printMethods(methodsToCall);
 
         List<Method[]> combinationMethods = getCombinations(methodsToCall, 3);
 
         printMethods(combinationMethods);
         
-        callCombinationMethods(combinationMethods);
+        //callCombinationMethods(combinationMethods);
         
 //        callMethods(methodsToCall);
         
