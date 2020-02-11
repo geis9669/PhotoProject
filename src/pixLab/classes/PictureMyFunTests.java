@@ -26,7 +26,7 @@ public class PictureMyFunTests
         methodsToCall.add(null);
         methodsToCall.add(null);
         methodsToCall.add(null);
-        
+
         printMethods(methodsToCall);
 
         List<Method[]> combinationMethods = getCombinations(methodsToCall, 3);
