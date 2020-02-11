@@ -145,49 +145,87 @@ public class Picture extends SimplePicture
       }
   }
 
+  public void zero(int color)
+    {
+        zero(color, 0, 0, this.getPixels2D().length, this.getPixels2D()[0].length);
+    }
+
     /**
-     * this method sets a certian areas red green blue to a specified amount
-     * @param color this is 0 for red 1 for green, 2 for blue
-     * @param value int between 0 and 255 for the color
-     * @param topRow the top of the area you want to start
-     * @param topCol where to start for the columns.
-     * @param bottomRow where to end
-     * @param bottomCol where to end
-     */
-  public void set(int color, int value, int topRow, int topCol, int bottomRow, int bottomCol)
-  {
-      Pixel[][] pixels = this.getPixels2D();
-      if(topRow<bottomRow&&topCol<bottomCol)
-      {
-          if(topRow>-1&&bottomRow<pixels.length&&topCol > -1 && bottomCol < pixels[0].length)
-          {
-              for(int row = topRow; row< bottomRow; row++)
-              {
-                  for(int col = topCol; col<bottomCol; col ++)
-                  {
+    * this method sets a certian areas red green blue to a specified amount
+    * @param color this is 0 for red 1 for green, 2 for blue
+    * @param value int between 0 and 255 for the color
+    * @param topRow the top of the area you want to start
+    * @param topCol where to start for the columns.
+    * @param bottomRow where to end
+    * @param bottomCol where to end
+    */
+    public void set(int color, int value, int topRow, int topCol, int bottomRow, int bottomCol)
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        if(topRow<bottomRow&&topCol<bottomCol)
+        {
+            if(topRow>-1&&bottomRow<pixels.length&&topCol > -1 && bottomCol < pixels[0].length)
+            {
+                for(int row = topRow; row< bottomRow; row++)
+                {
+                    for(int col = topCol; col<bottomCol; col ++)
+                    {
                         if(color == RED)
                         {
                             pixels[row][col].setRed(value);
                         }
                         else if(color==GREEN)
                         {
-                            pixels[row][col].setGreen(value);
+                          pixels[row][col].setGreen(value);
                         }
                         else if(color == BLUE)
                         {
                             pixels[row][col].setBlue(value);
                         }
-                  }
-              }
-          }
-      }
-  }
+                    }
+                }
+            }
+        }
+    }
 
-  public void zero(int color)
-  {
-      zero(color, 0, 0, this.getPixels2D().length, this.getPixels2D()[0].length);
-  }
-  
+
+    /**
+     * this method sets a certian areas red green blue to a specified amount
+     * @param color this is 0 for red 1 for green, 2 for blue
+     * @param value int between -255 and 255 for the color
+     * @param topRow the top of the area you want to start
+     * @param topCol where to start for the columns.
+     * @param bottomRow where to end
+     * @param bottomCol where to end
+     */
+    public void change(int color, int value, int topRow, int topCol, int bottomRow, int bottomCol)
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        if(topRow<bottomRow&&topCol<bottomCol)
+        {
+            if(topRow>-1&&bottomRow<pixels.length&&topCol > -1 && bottomCol < pixels[0].length)
+            {
+                for(int row = topRow; row< bottomRow; row++)
+                {
+                    for(int col = topCol; col<bottomCol; col ++)
+                    {
+                        if(color == RED)
+                        {
+                            pixels[row][col].setRed(pixels[row][col].getRed()+value);
+                        }
+                        else if(color==GREEN)
+                        {
+                            pixels[row][col].setGreen(pixels[row][col].getGreen()+value);
+                        }
+                        else if(color == BLUE)
+                        {
+                            pixels[row][col].setBlue(pixels[row][col].getBlue()+value);
+                        }
+                    }
+                }
+            }
+        }
+    }
   /** Method to set the green to 0*/
   public void zeroGreen()
   {
@@ -782,11 +820,12 @@ public class Picture extends SimplePicture
 //          int shift = (int) (Math.random()* pixels.length*2);//-pixels.length;
       }
   }
-  
+
+
   public void glitch3(int changes) {
       Pixel[][] pixels = this.getPixels2D();
 
-      int options = 3;
+      int options = 4;
 
       //int changes = (int) (Math.random() * (modifier))+1;
       for(int time = 0; time <= changes; time++)
@@ -806,7 +845,7 @@ public class Picture extends SimplePicture
               int shift = (int) (Math.random()*(pixels[0].length*2));
               verticalShift(shift,startCol,endCol);
           }
-          else if (randomChange == 2)
+          else if (randomChange == 2 )
           {
               int color = (int) (Math.random()*3);
               int howMuch = (int) (Math.random()*256);
@@ -815,6 +854,16 @@ public class Picture extends SimplePicture
               int startCol = (int) (Math.random()*pixels[0].length);
               int endCol = (int) (Math.random()*(pixels[0].length-startCol))+startCol;
               set(color, howMuch,startRow,startCol,endRow,endCol);
+          }
+          else if(randomChange ==3)
+          {
+              int color = (int) (Math.random()*3);
+              int howMuch = (int) (Math.random()*256);
+              int startRow = (int) (Math.random()*pixels.length);
+              int endRow = (int) (Math.random()* (pixels.length-startRow) )+startRow;
+              int startCol = (int) (Math.random()*pixels[0].length);
+              int endCol = (int) (Math.random()*(pixels[0].length-startCol))+startCol;
+              change(color,howMuch,startRow,startCol,endRow,endCol);
           }
 //          int startRow = (int) (Math.random()*pixels.length);
 //          int endRow = (int) (Math.random()* (pixels.length-startRow) )+startRow;
