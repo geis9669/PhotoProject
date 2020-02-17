@@ -221,6 +221,7 @@ public class PictureTester
     //canvas.explore();
     canvas.createMyCollage();
     canvas.explore();
+    canvas.write("GregsCollage.jpg");
   }
 
   /** Method to test edgeDetection */
@@ -368,7 +369,7 @@ public class PictureTester
 //    testMirrorGull(); //greg
 //    testCopy();
 //    testCollage();
-//    testMyCollage();
+    testMyCollage();
 //    testEdgeDetection();
 //    testEdgeDetection2();// greg
 //    testEdgeDetection3(); //greg
@@ -384,7 +385,7 @@ public class PictureTester
 //    testGetAverageForColumn(0);
       
 //      testGlitch(picture);
-      testGlitch3(picture);
+//      testGlitch3(picture);
 //      testZero(picture);
       
 //      testVerticalShift(picture);

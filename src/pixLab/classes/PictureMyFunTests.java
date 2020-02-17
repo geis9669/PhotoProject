@@ -33,7 +33,7 @@ public class PictureMyFunTests
 
         printMethods(combinationMethods);
         
-        //callCombinationMethods(combinationMethods);
+        callCombinationMethods(combinationMethods);
         
 //        callMethods(methodsToCall);
         
@@ -106,6 +106,7 @@ public class PictureMyFunTests
             title+= " #"+index;
             myPicture.setTitle(title);
             myPicture.explore();
+            myPicture.write(title+".jpg");
         }
         
     }
