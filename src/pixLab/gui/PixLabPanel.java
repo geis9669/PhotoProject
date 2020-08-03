@@ -1,11 +1,17 @@
 package pixLab.gui;
 
+import java.util.*;
+import java.util.List;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.nio.file.*;
+
 import javax.swing.*;
+
+import pixLab.classes.*;
 
 public class PixLabPanel extends JPanel
 {
@@ -13,9 +19,13 @@ public class PixLabPanel extends JPanel
 	private JButton openImageButton;
 	private JComboBox<String> picturesInFolder;
 	
+	private Map<String, Method> methodsMap;
+	
 	public PixLabPanel()
 	{
 		super();
+		methodsMap = new HashMap<>();
+		
 		this.setLayout(null);
 		this.setBackground(Color.CYAN);
 		
@@ -67,5 +77,32 @@ public class PixLabPanel extends JPanel
 		}
 		String[] pictureNames = new String[paths.size()];
 		return paths.toArray(pictureNames);
+	}
+	
+	private List<String> getPictureMethods()
+	{
+		List<String> methodstoReturn = new ArrayList<>();
+		String className = "pixLab.classes.Picture";
+		try
+		{
+			Class cl = Class.forName(className);
+			Method[] methods = cl.getDeclaredMethods();
+			
+			for(Method command : methods)
+			{
+				Class<?> s = command.getReturnType();
+//				System.out.println(command);
+				if(s == void.class)
+				{
+					methodstoReturn.add(command.getName());
+					methodsMap.put(command.getName(), command);
+				}
+			}
+		}
+		catch(ClassNotFoundException exception)
+		{
+			System.out.println("getPictureMethods method\n"+exception.getMessage());
+		}
+		return methodstoReturn; 
 	}
 }
