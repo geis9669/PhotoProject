@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.file.*;
 
@@ -19,12 +20,15 @@ public class PixLabPanel extends JPanel
 	private JButton openImageButton;
 	private JComboBox<String> picturesInFolder;
 	
+	private JList<String> changePictureMethodsDropDown;
 	private Map<String, Method> methodsMap;
+//	private JList<> 
 	
 	public PixLabPanel()
 	{
 		super();
 		methodsMap = new HashMap<>();
+		//methodsMap.add(null, null);
 		
 		this.setLayout(null);
 		this.setBackground(Color.CYAN);
@@ -35,6 +39,25 @@ public class PixLabPanel extends JPanel
 			{
 				String fileName = (String) picturesInFolder.getSelectedItem();
 				Picture image = new Picture(fileName);
+				
+//				String key = changePictureMethodsDropDown.getSelectedValue();
+//				Method method = methodsMap.get(key);
+//				if(method != null)
+//				{
+//				try {
+//					method.invoke(image);
+//				} catch (IllegalAccessException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} catch (IllegalArgumentException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} catch (InvocationTargetException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				}
+				
 				image.explore();
 			}
 		});
@@ -48,6 +71,22 @@ public class PixLabPanel extends JPanel
 		picturesInFolder.setLocation(openImageButton.getX()+openImageButton.getWidth(), openImageButton.getY());
 		picturesInFolder.setSize(200, 25);
 		this.add(picturesInFolder);
+		
+		this.changePictureMethodsDropDown = new JList<>();
+		DefaultListModel<String> methodsModel = new DefaultListModel<>();
+		methodsModel.addAll(getPictureMethods());
+		changePictureMethodsDropDown.setModel(methodsModel);
+		changePictureMethodsDropDown.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+//		changePictureMethodsDropDown.set
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setLocation(openImageButton.getX(), 10+openImageButton.getY()+openImageButton.getHeight());
+		scrollPane.setSize(200,200);
+		scrollPane.setViewportView(changePictureMethodsDropDown);
+		this.add(scrollPane);
+		
+		
 		/*
 		 * Things that I may want
 		 * A way to choose the picture - 
