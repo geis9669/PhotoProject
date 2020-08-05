@@ -17,7 +17,7 @@ public class PixLabFrame extends JFrame
 		panel = new PixLabPanel();
 		this.setContentPane(panel);
 		
-		this.setSize(400,400);
+		this.setSize(600,400);
 		this.setResizable(true);
 		this.setResizable(true);
 		this.setMinimumSize(new Dimension(100,100));
