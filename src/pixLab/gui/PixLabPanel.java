@@ -40,23 +40,23 @@ public class PixLabPanel extends JPanel
 				String fileName = (String) picturesInFolder.getSelectedItem();
 				Picture image = new Picture(fileName);
 				
-//				String key = changePictureMethodsDropDown.getSelectedValue();
-//				Method method = methodsMap.get(key);
-//				if(method != null)
-//				{
-//				try {
-//					method.invoke(image);
-//				} catch (IllegalAccessException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				} catch (IllegalArgumentException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				} catch (InvocationTargetException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				}
+				String key = changePictureMethodsDropDown.getSelectedValue();
+				Method method = methodsMap.get(key);
+				if(method != null)
+				{
+				try {
+					method.invoke(image);
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalArgumentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (InvocationTargetException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
 				
 				image.explore();
 			}
