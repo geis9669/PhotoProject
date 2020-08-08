@@ -80,6 +80,14 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
   /** 500% zoom level */
   private JMenuItem fiveHundred;
   
+  //gregory start
+  /** save menu */
+  private JMenu saveMenu;
+  /** save */
+  private JMenuItem saveas;
+  
+  //gregory end
+  
   /** The picture being explored */
   private DigitalPicture picture;
   
@@ -157,6 +165,11 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     hundredFifty = new JMenuItem("150%");
     twoHundred = new JMenuItem("200%");
     fiveHundred = new JMenuItem("500%");
+    //gregory start
+    //create and add save to menu
+    saveMenu = new JMenu("Save");
+    saveas = new JMenuItem("saveas");
+    //gregory end
     
     // add the action listeners
     twentyFive.addActionListener(this);
@@ -166,6 +179,9 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     hundredFifty.addActionListener(this);
     twoHundred.addActionListener(this);
     fiveHundred.addActionListener(this);
+    //gregory start
+    saveas.addActionListener(this);
+    //gregory end
     
     // add the menu items to the menus
     zoomMenu.add(twentyFive);
@@ -176,6 +192,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     zoomMenu.add(twoHundred);
     zoomMenu.add(fiveHundred);
     menuBar.add(zoomMenu);
+    //gregory start
+    saveMenu.add(saveas);
+    menuBar.add(saveMenu);
+    //gregory end
     
     // set the menu bar to this menu
     pictureFrame.setJMenuBar(menuBar);
@@ -750,6 +770,17 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
       enableZoomItems();
       fiveHundred.setEnabled(false);
     }
+    //gregory start
+    if(a.getActionCommand().contentEquals("saveas"))
+    {
+    	String fileName = JOptionPane.showInputDialog(null, "enter the path of where you want to save the picture \nwith the name of the file your saving at the end");
+    	if(fileName != null)
+    	{
+    		fileName += ".jpg";
+    		this.picture.write(fileName);
+    	}
+    }
+    //gregory end
   }
   
   
