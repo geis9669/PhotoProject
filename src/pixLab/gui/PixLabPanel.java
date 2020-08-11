@@ -94,7 +94,7 @@ public class PixLabPanel extends JPanel
 		changeScrollPane.setViewportView(changePictureMethodsDropDown);
 		this.add(changeScrollPane);
 		
-		this.addButton = new JButton("Add effect");
+		this.addButton = new JButton("Add Effect");
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent click)
 			{
@@ -107,7 +107,7 @@ public class PixLabPanel extends JPanel
 		addButton.setSize(100,25);
 		this.add(addButton);
 		
-		this.removeButton = new JButton("Remove effect");
+		this.removeButton = new JButton("Remove Effect");
 		removeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent click)
 			{
