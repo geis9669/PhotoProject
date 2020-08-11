@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.nio.file.*;
 
 import javax.swing.*;
@@ -198,7 +199,22 @@ public class PixLabPanel extends JPanel
 //				System.out.println(command);
 				if(s == void.class)
 				{
-					methodstoReturn.add(command.getName());
+					String parameters = "";
+					
+					Parameter[] items = command.getParameters();
+					for(int it = 0; it<items.length; it++)
+					{
+						parameters += items[it].toString() + " ";
+					}
+					
+					
+//					Class[] param = command.getParameterTypes();
+//					for(int i = 0; i<param.length; i++)
+//					{
+//						parameters +=param[i].getSimpleName() + " ";
+//					}
+					
+					methodstoReturn.add(command.getName()+" "+parameters);
 					methodsMap.put(command.getName(), command);
 				}
 			}
