@@ -17,6 +17,8 @@ import pixLab.classes.*;
 public class PixLabPanel extends JPanel
 {
 	
+	private final int BUFFER = 10;
+	
 	private JButton openImageButton;
 	private JComboBox<String> picturesInFolder;
 	
@@ -64,7 +66,7 @@ public class PixLabPanel extends JPanel
 				image.explore();
 			}
 		});
-		openImageButton.setLocation(10,10);
+		openImageButton.setLocation(BUFFER, BUFFER);
 		openImageButton.setSize(170, 25);
 		this.add(openImageButton);
 		
@@ -96,7 +98,7 @@ public class PixLabPanel extends JPanel
 				
 			}
 		});
-		addButton.setLocation(changeScrollPane.getX()+changeScrollPane.getWidth() + 10, changeScrollPane.getY()+10);
+		addButton.setLocation(changeScrollPane.getX()+changeScrollPane.getWidth()+BUFFER, changeScrollPane.getY()+BUFFER);
 		addButton.setSize(100,25);
 		this.add(addButton);
 		
@@ -108,7 +110,7 @@ public class PixLabPanel extends JPanel
 		JScrollPane choosenScrollPane = new JScrollPane();
 		choosenScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 		choosenScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		choosenScrollPane.setLocation(addButton.getX()+addButton.getWidth() + 10,changeScrollPane.getY());
+		choosenScrollPane.setLocation(addButton.getX()+addButton.getWidth()+BUFFER,changeScrollPane.getY());
 		choosenScrollPane.setSize(changeScrollPane.getSize());
 		choosenScrollPane.setViewportView(choosenMethods);
 		this.add(choosenScrollPane);
