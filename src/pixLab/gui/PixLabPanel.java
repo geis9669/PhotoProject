@@ -107,7 +107,9 @@ public class PixLabPanel extends JPanel
 		removeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent click)
 			{
-				
+				int index = choosenMethods.getSelectedIndex();
+				if(index > -1)
+					choosenModel.remove(index);
 			}
 		});
 		removeButton.setMargin(new Insets(2,2,2,2));
