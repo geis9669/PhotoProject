@@ -23,6 +23,7 @@ public class PixLabPanel extends JPanel
 	private JList<String> changePictureMethodsDropDown;
 	private Map<String, Method> methodsMap;
 	
+	private JButton addButton;
 	private JList<String> choosenMethods;
 	DefaultListModel<String> choosenModel;
 	
@@ -87,6 +88,18 @@ public class PixLabPanel extends JPanel
 		changeScrollPane.setSize(200,200);
 		changeScrollPane.setViewportView(changePictureMethodsDropDown);
 		this.add(changeScrollPane);
+		
+		this.addButton = new JButton("Add effect");
+		addButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
+		addButton.setLocation(changeScrollPane.getX()+changeScrollPane.getWidth() + 10, changeScrollPane.getY()+10);
+		addButton.setSize(100,25);
+		this.add(addButton);
+		
 		
 		this.choosenMethods = new JList<>();
 		choosenModel = new DefaultListModel<>();
