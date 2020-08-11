@@ -29,6 +29,7 @@ public class PixLabPanel extends JPanel
 	private JButton addButton;
 	private JButton removeButton;
 	private JButton clearButton;
+	// button to move an item in the list
 	private JList<String> choosenMethods;
 	DefaultListModel<String> choosenModel;
 	
