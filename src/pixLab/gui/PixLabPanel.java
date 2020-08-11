@@ -83,6 +83,7 @@ public class PixLabPanel extends JPanel
 		methodsModel.addAll(getPictureMethods());
 		changePictureMethodsDropDown.setModel(methodsModel);
 		changePictureMethodsDropDown.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		changePictureMethodsDropDown.setSelectedIndex(0);
 //		changePictureMethodsDropDown.set
 		JScrollPane changeScrollPane = new JScrollPane();
 		changeScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
