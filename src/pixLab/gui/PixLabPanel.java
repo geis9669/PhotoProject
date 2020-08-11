@@ -125,7 +125,12 @@ public class PixLabPanel extends JPanel
 		clearButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent click)
 			{
+				String message = "Confirm Clear";
+				String title = "Confirm";
+				int option = JOptionPane.showConfirmDialog(clearButton.getParent(), message, title, JOptionPane.YES_NO_OPTION);
+				if(option == JOptionPane.OK_OPTION)
 					choosenModel.clear();
+			}
 		});
 		clearButton.setMargin(new Insets(2,2,2,2));
 		clearButton.setLocation(addButton.getX(), removeButton.getY()+removeButton.getHeight()+BUFFER);
