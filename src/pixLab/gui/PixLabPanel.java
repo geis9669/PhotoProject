@@ -78,13 +78,13 @@ public class PixLabPanel extends JPanel
 		changePictureMethodsDropDown.setModel(methodsModel);
 		changePictureMethodsDropDown.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 //		changePictureMethodsDropDown.set
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setLocation(openImageButton.getX(), 10+openImageButton.getY()+openImageButton.getHeight());
-		scrollPane.setSize(200,200);
-		scrollPane.setViewportView(changePictureMethodsDropDown);
-		this.add(scrollPane);
+		JScrollPane changeScrollPane = new JScrollPane();
+		changeScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		changeScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		changeScrollPane.setLocation(openImageButton.getX(), 10+openImageButton.getY()+openImageButton.getHeight());
+		changeScrollPane.setSize(200,200);
+		changeScrollPane.setViewportView(changePictureMethodsDropDown);
+		this.add(changeScrollPane);
 		
 		
 		/*
