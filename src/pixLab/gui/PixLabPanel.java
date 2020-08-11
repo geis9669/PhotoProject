@@ -26,6 +26,7 @@ public class PixLabPanel extends JPanel
 	private Map<String, Method> methodsMap;
 	
 	private JButton addButton;
+	private JButton removeButton;
 	private JList<String> choosenMethods;
 	DefaultListModel<String> choosenModel;
 	
@@ -102,6 +103,17 @@ public class PixLabPanel extends JPanel
 		addButton.setSize(100,25);
 		this.add(addButton);
 		
+		this.removeButton = new JButton("Remove effect");
+		removeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
+		removeButton.setMargin(new Insets(2,2,2,2));
+		removeButton.setLocation(addButton.getX(), addButton.getY()+addButton.getHeight() + BUFFER);
+		removeButton.setSize(addButton.getSize());
+		this.add(removeButton);
 		
 		this.choosenMethods = new JList<>();
 		choosenModel = new DefaultListModel<>();
