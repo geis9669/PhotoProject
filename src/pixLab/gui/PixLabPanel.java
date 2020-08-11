@@ -96,7 +96,9 @@ public class PixLabPanel extends JPanel
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent click)
 			{
+				String element = changePictureMethodsDropDown.getSelectedValue();
 				
+				choosenModel.addElement(element);
 			}
 		});
 		addButton.setLocation(changeScrollPane.getX()+changeScrollPane.getWidth()+BUFFER, changeScrollPane.getY()+BUFFER);
