@@ -22,7 +22,8 @@ public class PixLabPanel extends JPanel
 	
 	private JList<String> changePictureMethodsDropDown;
 	private Map<String, Method> methodsMap;
-//	private JList<> 
+	
+	private JList<String> choosenMethods; 
 	
 	public PixLabPanel()
 	{
@@ -86,6 +87,17 @@ public class PixLabPanel extends JPanel
 		changeScrollPane.setViewportView(changePictureMethodsDropDown);
 		this.add(changeScrollPane);
 		
+		this.choosenMethods = new JList<>();
+		DefaultListModel<String> choosenModel = new DefaultListModel<>();
+		choosenMethods.setModel(choosenModel);
+		choosenMethods.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		JScrollPane choosenScrollPane = new JScrollPane();
+		choosenScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		choosenScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		choosenScrollPane.setLocation(changeScrollPane.getX()+changeScrollPane.getWidth() + 20,changeScrollPane.getY());
+		choosenScrollPane.setSize(changeScrollPane.getSize());
+		choosenScrollPane.setViewportView(choosenMethods);
+		this.add(choosenScrollPane);
 		
 		/*
 		 * Things that I may want
