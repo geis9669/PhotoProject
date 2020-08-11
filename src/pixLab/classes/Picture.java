@@ -115,7 +115,14 @@ public class Picture extends SimplePicture
   public static final int RED = 0;
   public static final int GREEN = 1;
   public static final int BLUE = 2;
-  
+  /**
+   * will set the specified color to zero
+   * @param color 0 for red, 1 for green, 2 for blue
+   * @param topRow the top line of pixels that you want to change
+   * @param topCol the left most column of pixels that you want changed
+   * @param bottomRow
+   * @param bottomCol
+   */
   public void zero(int color, int topRow, int topCol, int bottomRow, int bottomCol)
   {
       Pixel[][] pixels = this.getPixels2D();
