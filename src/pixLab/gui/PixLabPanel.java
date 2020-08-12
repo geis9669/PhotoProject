@@ -222,7 +222,11 @@ public class PixLabPanel extends JPanel
 					Parameter[] items = command.getParameters();
 					for(int it = 0; it<items.length; it++)
 					{
-						parameters += items[it].toString() + " ";
+						if(it!=0)
+						{
+							parameters += " ";
+						}
+						parameters += items[it].toString() ;
 					}
 //					Class[] param = command.getParameterTypes();
 //					for(int i = 0; i<param.length; i++)
