@@ -214,7 +214,6 @@ public class PixLabPanel extends JPanel
 			for(Method command : methods)
 			{
 				Class<?> s = command.getReturnType();
-//				System.out.println(command);
 				if(s == void.class)
 				{
 					String parameters = "(";
