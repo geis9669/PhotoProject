@@ -30,8 +30,8 @@ public class PixLabPanel extends JPanel
 	private JButton removeButton;
 	private JButton clearButton;
 	// button to move an item in the list
-	private JList<String> choosenMethods;
-	DefaultListModel<String> choosenModel;
+	private JList<MethodParameters> choosenMethods;
+	DefaultListModel<MethodParameters> choosenModel;
 	
 	public PixLabPanel()
 	{
@@ -51,8 +51,7 @@ public class PixLabPanel extends JPanel
 				
 				for(int index = 0; index < choosenModel.getSize(); index++)
 				{
-					String key = choosenModel.get(index);
-					Method method = methodsMap.get(key);
+					MethodParameters method = choosenModel.get(index);
 					if(method != null)
 					{
 						try {
@@ -103,9 +102,23 @@ public class PixLabPanel extends JPanel
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent click)
 			{
-				String element = changePictureMethodsDropDown.getSelectedValue();
+				String key = changePictureMethodsDropDown.getSelectedValue();
+				Method method = methodsMap.get(key);
 				
-				choosenModel.addElement(element);
+//				Parameter[] parameters = method.getParameters();
+//				System.out.print(parameters.length+"");
+				
+				Object[] parameterValues = new Object[method.getParameterCount()];
+				
+				if(parameterValues.length != 0)
+				{
+					//code to get the parameters
+					if(false)//check if the user canceled filling out the info
+					{
+						return;
+					}
+				}
+				choosenModel.addElement(new MethodParameters(method, parameterValues));
 			}
 		});
 		addButton.setLocation(changeScrollPane.getX()+changeScrollPane.getWidth()+BUFFER, changeScrollPane.getY()+BUFFER);
@@ -200,23 +213,23 @@ public class PixLabPanel extends JPanel
 //				System.out.println(command);
 				if(s == void.class)
 				{
-					String parameters = "";
+					String parameters = "(";
 					
 					Parameter[] items = command.getParameters();
 					for(int it = 0; it<items.length; it++)
 					{
 						parameters += items[it].toString() + " ";
 					}
-					
-					
 //					Class[] param = command.getParameterTypes();
 //					for(int i = 0; i<param.length; i++)
 //					{
 //						parameters +=param[i].getSimpleName() + " ";
 //					}
 					
-					methodstoReturn.add(command.getName()+" "+parameters);
-					methodsMap.put(command.getName(), command);
+					parameters+=")";
+					String commandParamName = command.getName()+""+parameters;
+					methodstoReturn.add(commandParamName);
+					methodsMap.put(commandParamName, command);
 				}
 			}
 		}
