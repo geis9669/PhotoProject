@@ -193,6 +193,7 @@ public class PixLabPanel extends JPanel
 		{
 			System.out.println(e.getMessage());
 			//
+			String errorStatement ="";
 		}
 		String[] pictureNames = new String[paths.size()];
 		return paths.toArray(pictureNames);
@@ -239,6 +240,9 @@ public class PixLabPanel extends JPanel
 		catch(ClassNotFoundException exception)
 		{
 			System.out.println("getPictureMethods method\n"+exception.getMessage());
+			//if it can't find that class then do nothing?
+			String errorStatement = "Could not find the class to get the methods to change the pictures\n";
+			errorStatement += "";
 		}
 		return methodstoReturn; 
 	}
