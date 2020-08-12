@@ -198,6 +198,10 @@ public class PixLabPanel extends JPanel
 		return paths.toArray(pictureNames);
 	}
 	
+	/**
+	 * this method is used to get the methods that it can call on an image to change that image
+	 * @return the methods you can call on a image
+	 */
 	private List<String> getPictureMethods()
 	{
 		List<String> methodstoReturn = new ArrayList<>();
