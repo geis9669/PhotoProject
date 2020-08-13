@@ -52,6 +52,7 @@ public class GetParametersTester {
 		
 		JPanel panel = new GetParametersPanel(buttons,textBoxes);
 		frame.add(panel);
+		frame.setTitle("Parameters");
 		frame.setVisible(true);
 	}
 
