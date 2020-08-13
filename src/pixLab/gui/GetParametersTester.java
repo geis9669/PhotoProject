@@ -29,14 +29,14 @@ public class GetParametersTester {
 				}
 			});
 			button.setMargin(new Insets(2,2,2,2));
-			button.setMaximumSize(new Dimension(50,50));
+			//button.setMaximumSize(new Dimension(50,50));
 			buttons[bindex] = button;
 		}
 		
 		JComponent[] textBoxes = new JComponent[SIZE];
 		for(int tindex = 0; tindex<textBoxes.length; tindex++)
 		{
-			JTextField enterField = new JTextField("", 50);
+			JTextField enterField = new JTextField("", 40);
 	        enterField.addActionListener(new ActionListener()
 	        {
 	            public void actionPerformed(ActionEvent enterPress)
@@ -45,7 +45,7 @@ public class GetParametersTester {
 	            }
 	        });
 	        enterField.setText("BOX " + tindex);
-	        enterField.setMaximumSize(new Dimension(50,50));
+	        //enterField.setMaximumSize(new Dimension(50,50));
 	        textBoxes[tindex] = enterField;
 		}
 		
