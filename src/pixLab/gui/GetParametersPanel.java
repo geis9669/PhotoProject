@@ -21,32 +21,36 @@ public class GetParametersPanel extends JPanel
 	public GetParametersPanel(JComponent[] questions, JComponent[] enterBoxes)
 	{
 		super();
+		
 		this.questionList = questions.clone();
 		this.enterBoxList = enterBoxes.clone();
-		
 		Box vBoxQ = Box.createVerticalBox();
 		Box vBoxE = Box.createVerticalBox();
 		for(int index = 0; index<questionList.length && index<enterBoxList.length;index++)
 		{
-			vBoxQ.add(questionList[index]);
-			vBoxQ.add(Box.createVerticalStrut(BUFFER));
+//			if(index != 0)
+//			{
+//				vBoxQ.add(Box.createVerticalStrut(BUFFER));
+//				vBoxE.add(Box.createVerticalStrut(BUFFER));
+//			}
 			
+			vBoxQ.add(questionList[index]);
 			vBoxE.add(enterBoxList[index]);
-			vBoxE.add(Box.createVerticalStrut(BUFFER));
 		}
 		
 		Box hBox = Box.createHorizontalBox();
 		hBox.add(vBoxQ);
 		hBox.add(Box.createHorizontalStrut(BUFFER));
 		hBox.add(vBoxE);
+		JPanel panel = new JPanel();
+		panel.add(hBox, BorderLayout.CENTER);
 		
 		this.pageScroller = new JScrollPane();
 		pageScroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 		pageScroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		pageScroller.add(hBox);
-		pageScroller.setPreferredSize(new Dimension(600, 500));
-		//add(hBox, BorderLayout.CENTER);
-//		add(pageScroller, BorderLayout.CENTER);
+		pageScroller.setPreferredSize(new Dimension(590, 400));
+		pageScroller.setViewportView(panel);
+		add(pageScroller, BorderLayout.NORTH);
 		
 		this.doneButton = new JButton("Done");
 		doneButton.addActionListener(new ActionListener() {
