@@ -67,6 +67,17 @@ public class GetParametersPanel extends JPanel
 				
 			}
 		});
+		
+		Box bottomBox = Box.createHorizontalBox();
+		bottomBox.add(doneButton);
+		bottomBox.add(Box.createHorizontalStrut(BUFFER));
+		bottomBox.add(cancelButton);
+		add(bottomBox, BorderLayout.SOUTH);
+		
+//		Box vBoxAll = Box.createVerticalBox();
+//		vBoxAll.add(pageScroller);
+//		vBoxAll.add(bottomBox);
+//		add(vBoxAll, BorderLayout.CENTER);
 	}
 	
 	public Object[] getParameters(String[] questions, JComponent[] enterBoxes)
