@@ -1,4 +1,4 @@
-package pixLab.gui;
+package pixLab.gui.questionsPopup;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

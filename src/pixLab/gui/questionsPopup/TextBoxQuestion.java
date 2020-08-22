@@ -1,4 +1,4 @@
-package pixLab.gui;
+package pixLab.gui.questionsPopup;
 
 import javax.swing.*;
 
