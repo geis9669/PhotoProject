@@ -131,9 +131,14 @@ public class PixLabPanel extends JPanel
 				popup.setTitle(method.getName());
 				popup.setSize(400,400);
 				popup.setLocationRelativeTo(frame);
+				
+				for(int index = 0; index< parameters.length; index++)
+				{
+//					ParameterInfo test = new ParameterInfo();
+				}
+				
 				popup.setVisible(true);
-				
-				
+				parameterValues = (Object[]) popup.getValidatedInput();
 				
 				choosenModel.addElement(new MethodParameters(method, parameterValues));
 			}
