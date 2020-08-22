@@ -32,7 +32,6 @@ public class PopupManyQuestionsDialog extends JDialog
 	 * make a class that holds a question, a place to enter info, and a generic way to get it.
 	 */
 	
-	//assuming the lengths of the boxes are the same size
 	public PopupManyQuestionsDialog(Frame ownerFrame)
 	{
 		super(ownerFrame, true);
