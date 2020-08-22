@@ -14,7 +14,7 @@ import java.nio.file.*;
 import javax.swing.*;
 
 import pixLab.classes.*;
-import pixLab.gui.questionsPopup.PopupManyQuestionsDialog;
+import pixLab.gui.questionsPopup.*;
 
 public class PixLabPanel extends JPanel
 {
@@ -127,7 +127,6 @@ public class PixLabPanel extends JPanel
 						parameterValues[index] = answer;
 					}
 				}
-				
 				PopupManyQuestionsDialog popup = new PopupManyQuestionsDialog(frame);
 				popup.setTitle(method.getName());
 				popup.setSize(400,400);
