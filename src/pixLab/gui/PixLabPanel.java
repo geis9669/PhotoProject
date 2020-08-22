@@ -17,6 +17,7 @@ import pixLab.classes.*;
 
 public class PixLabPanel extends JPanel
 {
+	private Frame frame;
 	
 	private final int BUFFER = 10;
 	
@@ -33,9 +34,10 @@ public class PixLabPanel extends JPanel
 	private JList<MethodParameters> choosenMethods;
 	DefaultListModel<MethodParameters> choosenModel;
 	
-	public PixLabPanel()
+	public PixLabPanel(Frame ownerFrame)
 	{
 		super();
+		this.frame = ownerFrame;
 		methodsMap = new HashMap<>();
 		//methodsMap.add(null, null);
 		
