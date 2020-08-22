@@ -181,6 +181,10 @@ public class PixLabPanel extends JPanel
 		 */
 	}
 	
+	/**
+	 * this method gets all the names of the images that it can currently load
+	 * @return a array of the names that can be loaded.
+	 */
 	private String[] getImageNames()
 	{
 		Path path = Paths.get("src\\pixLab\\images");
