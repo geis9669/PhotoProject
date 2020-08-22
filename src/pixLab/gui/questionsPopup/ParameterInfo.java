@@ -33,7 +33,7 @@ public abstract class ParameterInfo<T extends JComponent , E extends JComponent>
 	
 	/**
 	 * asking if the value returned by getvalidatedInput is acceptable
-	 * @return
+	 * @return true if when getValidatedInput is called it wont throw any errors, other wise false
 	 */
 	public abstract boolean hasValidInput();
 	
