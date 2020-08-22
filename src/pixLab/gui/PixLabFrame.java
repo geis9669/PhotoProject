@@ -20,7 +20,6 @@ public class PixLabFrame extends JFrame
 		this.setTitle("ChangeImage");
 		this.setSize(600,400);
 		this.setResizable(true);
-		this.setResizable(true);
 		this.setMinimumSize(new Dimension(100,100));
 		
 		this.addWindowListener(new WindowAdapter() {
@@ -29,7 +28,6 @@ public class PixLabFrame extends JFrame
         		System.exit(0);
         	}
         });
-		
 		
 		this.setVisible(true);
 	}
