@@ -13,7 +13,7 @@ public class MethodParameters
 		this.method = method;
 //		this.method.invoke();
 //		this.parameters = new Object[method.getParameterCount()];
-		this.parameters = parameters.clone();
+		this.parameters = parameters;
 	}
 	
 	public Object invoke(Object object) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
