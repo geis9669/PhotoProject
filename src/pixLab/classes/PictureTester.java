@@ -285,14 +285,20 @@ public class PictureTester
       Picture zeroRed = new Picture(pictureName);
       
       zeroGreen.explore();
-      
-      zeroGreen.zero(Picture.GREEN, 0, 0, 100, 100);
+      zeroGreen.zero(Picture.GREEN, 0, 0, 479, 639);
       zeroGreen.explore();
-      zeroBlue.zero(Picture.BLUE,  0, 0, 100, 100);
+//      zeroGreen.zero(Picture.GREEN, 0, 0, 100, 100);
+//      zeroGreen.explore();
+//      zeroBlue.zero(Picture.BLUE,  0, 0, 100, 100);
+//      zeroBlue.explore();
+//      zeroRed.zero(Picture.RED, 0, 0, 325, 213);
+//      zeroRed.explore();
+      zeroGreen.zero(Picture.GREEN);
+      zeroGreen.explore();
+      zeroBlue.zero(Picture.BLUE);
       zeroBlue.explore();
-      zeroRed.zero(Picture.RED, 0, 0, 325, 213);
+      zeroRed.zero(Picture.RED);
       zeroRed.explore();
-      
   }
   
   public static void testChromakey(String pictureName, String pictureNameBackGround)
@@ -369,7 +375,7 @@ public class PictureTester
 //    testMirrorGull(); //greg
 //    testCopy();
 //    testCollage();
-    testMyCollage();
+//    testMyCollage();
 //    testEdgeDetection();
 //    testEdgeDetection2();// greg
 //    testEdgeDetection3(); //greg
@@ -386,7 +392,7 @@ public class PictureTester
       
 //      testGlitch(picture);
 //      testGlitch3(picture);
-//      testZero(picture);
+      testZero(picture);
       
 //      testVerticalShift(picture);
 //      testHorizontalShift(picture);
