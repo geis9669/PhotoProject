@@ -55,6 +55,7 @@ public class PixLabPanel extends JPanel
 				for(int index = 0; index < choosenModel.getSize(); index++)
 				{
 					MethodParameters method = choosenModel.get(index);
+					System.out.println(method.toString());
 					if(method != null)
 					{
 						try {
@@ -113,7 +114,25 @@ public class PixLabPanel extends JPanel
 				
 				if(parameterValues.length != 0)
 				{
-					for(int index = 0; index<parameterValues.length; index++)
+//					for(int index = 0; index<parameterValues.length; index++)
+//					{
+//						// needs to make the validation here then send it to the popup
+//						String question = "";
+//						question += parameters[index].getName();
+//						String answer = JOptionPane.showInputDialog(addButton.getParent(), question);
+//						//code to get the parameters
+//						if(answer == null || answer.equals(""))//check if the user canceled filling out the info
+//						{
+//							return;
+//						}
+//						parameterValues[index] = answer;
+//					}
+					PopupManyQuestionsDialog popup = new PopupManyQuestionsDialog(frame);
+					popup.setTitle(method.getName());
+					popup.setSize(400,400);
+					popup.setLocationRelativeTo(frame);
+					
+					for(int index = 0; index< parameters.length; index++)
 					{
 						// needs to make the validation here then send it to the popup
 						String question = "";
@@ -125,20 +144,9 @@ public class PixLabPanel extends JPanel
 							return;
 						}
 						parameterValues[index] = answer;
+					parameterValues = (Object[]) popup.getValidatedInput();
 					}
 				}
-				PopupManyQuestionsDialog popup = new PopupManyQuestionsDialog(frame);
-				popup.setTitle(method.getName());
-				popup.setSize(400,400);
-				popup.setLocationRelativeTo(frame);
-				
-				for(int index = 0; index< parameters.length; index++)
-				{
-//					ParameterInfo test = new ParameterInfo();
-				}
-				
-				popup.setVisible(true);
-				parameterValues = (Object[]) popup.getValidatedInput();
 				
 				choosenModel.addElement(new MethodParameters(method, parameterValues));
 			}
