@@ -145,6 +145,9 @@ public class PixLabPanel extends JPanel
 						}
 						parameterValues[index] = answer;
 					parameterValues = (Object[]) popup.getValidatedInput();
+					if(parameterValues == null)
+					{
+						return;
 					}
 				}
 				
