@@ -1,43 +1,85 @@
 package pixLab.gui.questionsPopup;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 import javax.swing.*;
 
 public class IntegerParameter extends ParameterInfo<JLabel, JTextField>
 {
-	private JLabel label;
-	private JTextField space;
 
-	public IntegerParameter()
+	public IntegerParameter(String message)
 	{
-		super(createLabel(), createSpace());
+		super(createLabel(message), createSpace());
 	}
 	
-	private static JLabel createLabel()
+	private static JLabel createLabel(String message)
 	{
-		return null;
+		JLabel label = new JLabel(message);
+		return label;
 	}
 	
 	private static JTextField createSpace()
 	{
-		return null;
+		KeyAdapter numValidator = new KeyAdapter() {
+			public void keyPressed(KeyEvent key)
+			{
+				JTextField field= (JTextField) key.getSource();
+				int length = field.getText().length();
+				char keyPressed = key.getKeyChar();
+				if(keyPressed == KeyEvent.VK_BACK_SPACE || (keyPressed >= '0' && keyPressed<='9' && length<4))
+				{
+					field.setEditable(true);
+					// have an error label set to not show.
+				}
+				else
+				{
+					field.setEditable(false);
+					//say Enter only Numeric digits(0-9) that are less than 9999
+				}
+			}
+		};
+		JTextField textField = new JTextField("", 20);
+		textField.addKeyListener(numValidator);
+		
+		return textField;
 	}
 
 	@Override
 	public boolean hasValidInput() {
-		// TODO Auto-generated method stub
-		return false;
+		String answer = getAnswerSpace().getText();
+		try
+		{
+			int num = Integer.parseInt(answer);
+			return true;
+		}
+		catch(NumberFormatException e)
+		{
+			return false;
+		}
 	}
 
 	@Override
+	/**
+	 * this returns the entered in number or null if there is an error so call has valid input
+	 * to make sure that what this returns is good
+	 */
 	public Object getValidatedInput() {
-		// TODO Auto-generated method stub
-		return null;
+		String answer = getAnswerSpace().getText();
+		try
+		{
+			int num = Integer.parseInt(answer);
+			return num;
+		}
+		catch(NumberFormatException e)
+		{
+			return null;
+		}
 	}
 
 	@Override
 	public void clearAnswerSpace() {
-		// TODO Auto-generated method stub
-		
+		getAnswerSpace().setText("");
 	}
 
 }
