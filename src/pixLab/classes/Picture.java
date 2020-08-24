@@ -154,7 +154,7 @@ public class Picture extends SimplePicture
 
   public void zero(int color)
     {
-        zero(color, 0, 0, this.getPixels2D().length, this.getPixels2D()[0].length);
+        zero(color, 0, 0, this.getPixels2D().length-1, this.getPixels2D()[0].length-1);
     }
 
     /**
