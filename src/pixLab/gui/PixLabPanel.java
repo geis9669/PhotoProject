@@ -55,7 +55,6 @@ public class PixLabPanel extends JPanel
 				for(int index = 0; index < choosenModel.getSize(); index++)
 				{
 					MethodParameters method = choosenModel.get(index);
-					System.out.println(method.toString());
 					if(method != null)
 					{
 						try {
