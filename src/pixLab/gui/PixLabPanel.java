@@ -114,19 +114,6 @@ public class PixLabPanel extends JPanel
 				
 				if(parameterValues.length != 0)
 				{
-//					for(int index = 0; index<parameterValues.length; index++)
-//					{
-//						// needs to make the validation here then send it to the popup
-//						String question = "";
-//						question += parameters[index].getName();
-//						String answer = JOptionPane.showInputDialog(addButton.getParent(), question);
-//						//code to get the parameters
-//						if(answer == null || answer.equals(""))//check if the user canceled filling out the info
-//						{
-//							return;
-//						}
-//						parameterValues[index] = answer;
-//					}
 					PopupManyQuestionsDialog popup = new PopupManyQuestionsDialog(frame);
 					popup.setTitle(method.getName());
 					popup.setSize(400,400);
