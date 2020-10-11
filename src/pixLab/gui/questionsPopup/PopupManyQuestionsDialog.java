@@ -12,6 +12,11 @@ import javax.swing.*;
 
 public class PopupManyQuestionsDialog extends JDialog
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Object[] inputedValues;
 	
 	private int value;
@@ -106,14 +111,14 @@ public class PopupManyQuestionsDialog extends JDialog
 	{
 		value = CANCEL;
 		setVisible(false);
-		for(ParameterInfo item:qAndA)
+		for(ParameterInfo<? extends JComponent, ? extends JComponent> item:qAndA)
 		{
 			item.clearAnswerSpace();
 		}
 	}
 
 	
-	public void add(ParameterInfo qAndA)
+	public void add(ParameterInfo<JComponent,JComponent> qAndA)
 	{
 		this.qAndA.add(qAndA);
 		upDateQuestionsPanel();
