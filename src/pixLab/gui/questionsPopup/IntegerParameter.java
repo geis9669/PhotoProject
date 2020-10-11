@@ -1,5 +1,6 @@
 package pixLab.gui.questionsPopup;
 
+import java.awt.Dimension;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -16,6 +17,7 @@ public class IntegerParameter extends ParameterInfo<JLabel, JTextField>
 	private static JLabel createLabel(String message)
 	{
 		JLabel label = new JLabel(message);
+		label.setPreferredSize(new Dimension(100,20));// used for spacing
 		return label;
 	}
 	
@@ -41,7 +43,7 @@ public class IntegerParameter extends ParameterInfo<JLabel, JTextField>
 		};
 		JTextField textField = new JTextField("", 20);
 		textField.addKeyListener(numValidator);
-		
+		textField.setPreferredSize(new Dimension(300,20));// used for spacing
 		return textField;
 	}
 
