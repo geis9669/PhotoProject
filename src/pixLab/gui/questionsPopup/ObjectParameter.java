@@ -47,6 +47,38 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 		// need the information about the object I am creating
 		return button;
 	}
+	
+	private static JComboBox<?> createDropDown(String title, Class<?> classToMake)
+	{
+		Constructor<?>[] constructors = classToMake.getConstructors();
+		String[] cNames = new String[constructors.length];
+		for(int index = 0; index<cNames.length; index++)
+		{
+			cNames[index] = constructors[index].getName();
+			System.out.println(constructors[index].getName()+ " "+index);
+		}
+		
+		JComboBox<Constructor> boxOptions = new JComboBox<>();
+		DefaultComboBoxModel<Constructor> modelList = new DefaultComboBoxModel<>(constructors);
+		boxOptions.setModel(modelList);
+		
+		boxOptions.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent selected)
+			{
+				PopupManyQuestionsDialog popup = new PopupManyQuestionsDialog(null);
+				popup.setTitle(title);
+				popup.setSize(400,400);
+				popup.setLocationRelativeTo(null);
+				
+				classToMake.getConstructors();
+				Parameter[] parameters;
+				
+				popup.setVisible(true);
+			}
+		});
+		
+		return boxOptions;
+	}
 
 	@Override
 	public boolean hasValidInput() {
