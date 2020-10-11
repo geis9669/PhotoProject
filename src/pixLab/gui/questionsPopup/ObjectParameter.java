@@ -98,4 +98,48 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 		
 	}
 	
+	/**
+	 * this method is used to get the methods that it can call on an image to change that image
+	 * @return the methods you can call on a image
+	 */
+	private List<String> getConstructors()
+	{
+		List<String> methodstoReturn = new ArrayList<>();
+		String className = "pixLab.classes.Picture";
+		try
+		{
+			Class cl = Class.forName(className);
+			Method[] methods = cl.getDeclaredMethods();
+			
+			for(Method command : methods)
+			{
+				Class<?> s = command.getReturnType();
+				if(s == void.class)
+				{
+					String parameters = "(";
+					
+					Parameter[] items = command.getParameters();
+					for(int it = 0; it<items.length; it++)
+					{
+						parameters += items[it].getType().getSimpleName() + " ";
+						parameters += items[it].getName() + " ";
+					}
+					
+					parameters+=")";
+					String commandParamName = command.getName()+""+parameters;
+					methodstoReturn.add(commandParamName);
+//					methodsMap.put(commandParamName, command);
+				}
+			}
+		}
+		catch(ClassNotFoundException exception)
+		{
+			System.out.println("getPictureMethods method\n"+exception.getMessage());
+			//if it can't find that class then do nothing?
+			String errorStatement = "Could not find the class to get the methods to change the pictures\n";
+			errorStatement += "";
+		}
+		return methodstoReturn; 
+	}
+
 }
