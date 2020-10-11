@@ -33,10 +33,10 @@ public class PopupManyQuestionsDialog extends JDialog
 	private JButton cancelButton;
 	
 	private final int BUFFER = 10;
+
 	/*
 	 * make a class that holds a question, a place to enter info, and a generic way to get it.
 	 */
-	
 	public PopupManyQuestionsDialog(Frame ownerFrame)
 	{
 		super(ownerFrame, true);
@@ -107,6 +107,9 @@ public class PopupManyQuestionsDialog extends JDialog
 		
 	}
 	
+	/**
+	 * when the user presses cancel on the popup window.
+	 */
 	private void closeWindow_Cancel()
 	{
 		value = CANCEL;
@@ -137,6 +140,8 @@ public class PopupManyQuestionsDialog extends JDialog
 			{
 				vBoxQ.add(Box.createVerticalStrut(BUFFER/2));
 				vBoxE.add(Box.createVerticalStrut(BUFFER/2));
+				vBoxQ.add(Box.createVerticalGlue());
+				vBoxE.add(Box.createVerticalGlue());
 			}
 			vBoxQ.add(qAndA.get(index).getQuestion());
 			vBoxE.add(qAndA.get(index).getAnswerSpace());
