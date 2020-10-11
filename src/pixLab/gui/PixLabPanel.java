@@ -131,6 +131,12 @@ public class PixLabPanel extends JPanel
 						{
 							option = new PictureParameter(message, getImageNames());
 						}
+						else if(type.equals("Color"))
+						{
+							Class<?> c = parameters[index].getType();//gets the class
+							Parameter c1 = parameters[index];
+							option = new ObjectParameter<>(message,c);
+						}
 						// need one for color background color
 						// make a class that will make objects by going into the class so I don't have to.
 						else
