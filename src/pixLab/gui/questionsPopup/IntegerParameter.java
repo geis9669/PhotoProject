@@ -52,7 +52,7 @@ public class IntegerParameter extends ParameterInfo<JLabel, JTextField>
 		String answer = getAnswerSpace().getText();
 		try
 		{
-			int num = Integer.parseInt(answer);
+			Integer.parseInt(answer);
 			return true;
 		}
 		catch(NumberFormatException e)
@@ -70,8 +70,7 @@ public class IntegerParameter extends ParameterInfo<JLabel, JTextField>
 		String answer = getAnswerSpace().getText();
 		try
 		{
-			int num = Integer.parseInt(answer);
-			return num;
+			return Integer.parseInt(answer);
 		}
 		catch(NumberFormatException e)
 		{
