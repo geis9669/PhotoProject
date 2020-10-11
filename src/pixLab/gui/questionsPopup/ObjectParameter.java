@@ -23,6 +23,30 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 		label.setPreferredSize(new Dimension(100,20));// used for spacing
 		return label;
 	}
+	
+	private static JButton createButton(String title, Class<?> classToMake)
+	{
+		JButton button = new JButton();
+		button.setPreferredSize(new Dimension(100,20));
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent click)
+			{
+				PopupManyQuestionsDialog popup = new PopupManyQuestionsDialog(null);
+				popup.setTitle(title);
+				popup.setSize(400,400);
+				popup.setLocationRelativeTo(null);
+				
+				classToMake.getConstructors();
+				Parameter[] parameters;
+				
+//				Object temp = classToMake.getDeclaredConstructor().newInstance(initargs); // use this method to make a new instance of that class.
+				//https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html
+				popup.setVisible(true);
+			}
+		});
+		// need the information about the object I am creating
+		return button;
+	}
 
 	@Override
 	public boolean hasValidInput() {
