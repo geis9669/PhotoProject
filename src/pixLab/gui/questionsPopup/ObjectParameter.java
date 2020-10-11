@@ -17,6 +17,12 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 	public ObjectParameter(String message, Class<?> classToMake) {
 		super(createLabel(message), createDropDown(message, classToMake));
 	}
+	private static JLabel createLabel(String message)
+	{
+		JLabel label = new JLabel(message);
+		label.setPreferredSize(new Dimension(100,20));// used for spacing
+		return label;
+	}
 
 	@Override
 	public boolean hasValidInput() {
