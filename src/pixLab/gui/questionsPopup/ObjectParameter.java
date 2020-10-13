@@ -121,7 +121,7 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 
 	@Override
 	public T getValidatedInput() {
-		
+		JComboBox<Constructor> space = getAnswerSpace();
 		return input;
 	}
 
