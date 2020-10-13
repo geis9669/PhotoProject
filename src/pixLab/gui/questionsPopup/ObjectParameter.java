@@ -82,10 +82,30 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 				popup.setSize(400,400);
 				popup.setLocationRelativeTo(null);
 				
-				classToMake.getConstructors();
-				Parameter[] parameters;
+				Constructor<?> construct = (Constructor<?>) modelList.getSelectedItem();
+				Parameter[] parameters = construct.getParameters();
+				for(int index = 0; index< parameters.length; index++)
+				{
+					String type = parameters[index].getType().getSimpleName();
+					String message = type +" "+ parameters[index].toString();//getName();
+					ParameterInfo option;
+					if(type.equals("int"))
+					{
+						option = new IntegerParameter(message);
+					}
+					else
+					{
+						Class<?> c = parameters[index].getType();//gets the class
+						Parameter c1 = parameters[index];
+						option = new ObjectParameter<>(message,c);
+					}
+					
+					popup.add(option);
+				}
 				
 				popup.setVisible(true);
+				
+
 			}
 		});
 		
