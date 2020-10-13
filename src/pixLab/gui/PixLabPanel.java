@@ -120,9 +120,9 @@ public class PixLabPanel extends JPanel
 					
 					for(int index = 0; index< parameters.length; index++)
 					{
-						String message = parameters[index].getName();
-						ParameterInfo option;
 						String type = parameters[index].getType().getSimpleName();
+						String message = type +" "+ parameters[index].getName();
+						ParameterInfo option;
 						if(type.equals("int"))
 						{
 							option = new IntegerParameter(message);
