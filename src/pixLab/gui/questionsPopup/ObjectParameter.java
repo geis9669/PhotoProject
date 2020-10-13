@@ -64,12 +64,11 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 	private static JComboBox<?> createDropDown(String title, Class<?> classToMake)
 	{
 		Constructor<?>[] constructors = classToMake.getConstructors();
-		String[] cNames = new String[constructors.length];
-		for(int index = 0; index<cNames.length; index++)
-		{
-			cNames[index] = constructors[index].getName();
-			System.out.println(constructors[index].getName()+ " "+index);
-		}
+//		String[] cNames = new String[constructors.length];
+//		for(int index = 0; index<cNames.length; index++)
+//		{
+//			cNames[index] = constructors[index].getName();
+//		}
 		
 		JComboBox<Constructor> boxOptions = new JComboBox<>();
 		DefaultComboBoxModel<Constructor> modelList = new DefaultComboBoxModel<>(constructors);
