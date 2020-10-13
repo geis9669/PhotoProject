@@ -13,9 +13,12 @@ import java.util.List;
 import javax.swing.*;
 
 public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
+	private T input;
 
 	public ObjectParameter(String message, Class<?> classToMake) {
 		super(createLabel(message), createDropDown(message, classToMake));
+		input = null;
+//		input = construct.newInstance(popup.getValidatedInput());
 	}
 	/*
 	 * Currently I need to figure out if I can use a custom list model that
@@ -92,20 +95,20 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 
 	@Override
 	public boolean hasValidInput() {
-		// TODO Auto-generated method stub
+		if(input != null)
+			return true;
 		return false;
 	}
 
 	@Override
 	public T getValidatedInput() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return input;
 	}
 
 	@Override
 	public void clearAnswerSpace() {
-		// TODO Auto-generated method stub
-		
+		input = null;
 	}
 	
 	/**
