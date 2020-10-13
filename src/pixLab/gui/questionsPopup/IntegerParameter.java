@@ -43,7 +43,7 @@ public class IntegerParameter extends ParameterInfo<JLabel, JTextField>
 		};
 		JTextField textField = new JTextField("", 20);
 		textField.addKeyListener(numValidator);
-		textField.setPreferredSize(new Dimension(300,20));// used for spacing
+		textField.setPreferredSize(new Dimension(100,20));// used for spacing
 		return textField;
 	}
 
