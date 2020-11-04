@@ -9,7 +9,26 @@ import java.lang.reflect.Parameter;
 
 import javax.swing.*;
 
-public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
+/*
+ * Currently I need to figure out if I can use a custom list model that
+ * will display what I want and return the constructor.
+ * https://www.codejava.net/java-se/swing/create-custom-gui-for-jcombobox
+ * https://stackoverflow.com/questions/43106351/creating-a-custom-table-model-to-provide-data-from-arraylist
+ * 
+ * still need to finish implementing this class
+ * 
+ * Object temp = classToMake.getDeclaredConstructor().newInstance(initargs); // use this method to make a new instance of that class.
+ * https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html
+ */
+
+/**
+ * A generic class to create objects from the user.
+ * 
+ * @author gregory
+ *
+ * @param <T> The type of data that the class will return.
+ */
+public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox<Constructor>> {
 	private T input;
 
 	public ObjectParameter(String message, Class<?> classToMake) {
