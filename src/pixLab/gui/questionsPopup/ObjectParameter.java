@@ -72,6 +72,19 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 
 			}
 		});
+	
+	/**
+	 * Creates a label for the user to read about the button.
+	 * @param message what to tell the user
+	 * @return a JLabel
+	 */
+	private static JLabel createLabel(String message)
+	{
+		JLabel label = new JLabel(message);
+		label.setPreferredSize(new Dimension(100,20));// used for spacing
+		return label;
+	}
+	
 	/**
 	 * 
 	 * @param classToMake the java class that you want constructed.
