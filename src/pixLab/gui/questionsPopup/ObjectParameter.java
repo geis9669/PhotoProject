@@ -33,17 +33,20 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox<Construct
 
 	 * 
 	 */
+	public ObjectParameter(String message, Class<T> classToMake) {
+		super(createLabel(message), createDropDown(classToMake));
+		input = null;
 		
-		boxOptions.addActionListener(new ActionListener() {
+		getAnswerSpace().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent selected)
 			{
 				PopupManyQuestionsDialog popup = new PopupManyQuestionsDialog(null);
-				popup.setTitle(title);
+				popup.setTitle(message);
 				popup.setSize(400,400);
 				popup.setLocationRelativeTo(null);
 				
-				Constructor<?> construct = (Constructor<?>) modelList.getSelectedItem();
-				Parameter[] parameters = construct.getParameters();
+				Constructor<?> cookieCutter = (Constructor<?>) getAnswerSpace().getModel().getSelectedItem();
+				Parameter[] parameters = cookieCutter.getParameters();
 				for(int index = 0; index< parameters.length; index++)
 				{
 					String type = parameters[index].getType().getSimpleName();
@@ -64,9 +67,9 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox<Construct
 				
 				popup.setVisible(true);
 				
-
 			}
 		});
+	}
 	
 	/**
 	 * Creates a label for the user to read about the button.
