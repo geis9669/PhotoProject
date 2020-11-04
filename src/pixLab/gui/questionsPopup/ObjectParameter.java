@@ -31,7 +31,10 @@ import javax.swing.*;
 public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox<Constructor>> {
 	private T input;
 
+	/**
 	 * 
+	 * @param message the message to send to the user.
+	 * @param classToMake The class that you want to be constructed.
 	 */
 	public ObjectParameter(String message, Class<T> classToMake) {
 		super(createLabel(message), createDropDown(classToMake));
