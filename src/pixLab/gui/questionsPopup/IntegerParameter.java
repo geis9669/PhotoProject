@@ -14,6 +14,14 @@ public class IntegerParameter extends ParameterInfo<JLabel, JTextField>
 		super(createLabel(message), createSpace(4));
 	}
 	
+	/**
+	 * 
+	 * @param message what to ask the user.
+	 * @param numOfDigits how many digits of the int are allowed.
+	 */
+	public IntegerParameter(String message, int numOfDigits)
+	{
+		super(createLabel(message), createSpace(numOfDigits));
 	}
 	
 	private static JLabel createLabel(String message)
