@@ -33,18 +33,6 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox<Construct
 
 	 * 
 	 */
-	private static JComboBox<?> createDropDown(String title, Class<?> classToMake)
-	{
-		Constructor<?>[] constructors = classToMake.getConstructors();
-//		String[] cNames = new String[constructors.length];
-//		for(int index = 0; index<cNames.length; index++)
-//		{
-//			cNames[index] = constructors[index].getName();
-//		}
-		
-		JComboBox<Constructor> boxOptions = new JComboBox<>();
-		DefaultComboBoxModel<Constructor> modelList = new DefaultComboBoxModel<>(constructors);
-		boxOptions.setModel(modelList);
 		
 		boxOptions.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent selected)
