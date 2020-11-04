@@ -72,6 +72,17 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 
 			}
 		});
+	/**
+	 * 
+	 * @param classToMake the java class that you want constructed.
+	 * @return a JComboBox of all the constructors.
+	 */
+	private static JComboBox<Constructor> createDropDown(Class<?> classToMake)
+	{
+		Constructor<?>[] constructors = classToMake.getConstructors();
+		JComboBox<Constructor> boxOptions = new JComboBox<>();
+		DefaultComboBoxModel<Constructor> modelList = new DefaultComboBoxModel<>(constructors);
+		boxOptions.setModel(modelList);
 		
 		return boxOptions;
 	}
