@@ -39,7 +39,7 @@ public abstract class ParameterInfo<T extends JComponent , E extends JComponent>
 	
 	/**
 	 * this should return what the user inputed
-	 * @return
+	 * @return the object constructed by the user.
 	 */
 	public abstract Object getValidatedInput();
 	
