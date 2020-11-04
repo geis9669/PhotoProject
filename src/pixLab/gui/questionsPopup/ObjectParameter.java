@@ -67,6 +67,18 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox<Construct
 				
 				popup.setVisible(true);
 				
+				Object[] param = (Object[]) popup.getValidatedInput();
+				if(param == null)
+				{
+					return;
+				}
+				try {
+					input = (T) cookieCutter.newInstance(param);
+				} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+						| InvocationTargetException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 	}
