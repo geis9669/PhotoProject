@@ -93,7 +93,6 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 					else
 					{
 						Class<?> c = parameters[index].getType();//gets the class
-						Parameter c1 = parameters[index];
 						option = new ObjectParameter<>(message,c);
 					}
 					
@@ -118,7 +117,6 @@ public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox> {
 
 	@Override
 	public T getValidatedInput() {
-		JComboBox<Constructor> space = getAnswerSpace();
 		return input;
 	}
 
