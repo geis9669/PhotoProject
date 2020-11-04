@@ -6,9 +6,22 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
+/**
+ * Provides a way of obtaining int values from the user.
+ * Has error checking so they can only enter int values.
+ * 
+ * @author gregory
+ *
+ */
 public class IntegerParameter extends ParameterInfo<JLabel, JTextField>
 {
 
+	/**
+	 * Provides a way to have the user enter in an int value with only 4 digits
+	 * can only have positive numbers
+	 * 
+	 * @param message what to ask the user
+	 */
 	public IntegerParameter(String message)
 	{
 		super(createLabel(message), createSpace(4));
