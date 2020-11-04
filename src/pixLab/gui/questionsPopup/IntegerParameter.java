@@ -11,7 +11,9 @@ public class IntegerParameter extends ParameterInfo<JLabel, JTextField>
 
 	public IntegerParameter(String message)
 	{
-		super(createLabel(message), createSpace());
+		super(createLabel(message), createSpace(4));
+	}
+	
 	}
 	
 	private static JLabel createLabel(String message)
@@ -21,7 +23,7 @@ public class IntegerParameter extends ParameterInfo<JLabel, JTextField>
 		return label;
 	}
 	
-	private static JTextField createSpace()
+	private static JTextField createSpace(int numOfDigits)
 	{
 		KeyAdapter numValidator = new KeyAdapter() {
 			public void keyPressed(KeyEvent key)
@@ -29,7 +31,7 @@ public class IntegerParameter extends ParameterInfo<JLabel, JTextField>
 				JTextField field= (JTextField) key.getSource();
 				int length = field.getText().length();
 				char keyPressed = key.getKeyChar();
-				if(keyPressed == KeyEvent.VK_BACK_SPACE || (keyPressed >= '0' && keyPressed<='9' && length<4))
+				if(keyPressed == KeyEvent.VK_BACK_SPACE || (keyPressed >= '0' && keyPressed<='9' && length<numOfDigits))
 				{
 					field.setEditable(true);
 					// have an error label set to not show.
