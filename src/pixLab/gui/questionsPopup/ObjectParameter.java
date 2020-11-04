@@ -31,18 +31,6 @@ import javax.swing.*;
 public class ObjectParameter<T> extends ParameterInfo<JLabel,JComboBox<Constructor>> {
 	private T input;
 
-	public ObjectParameter(String message, Class<?> classToMake) {
-		super(createLabel(message), createDropDown(message, classToMake));
-		input = null;
-//		input = construct.newInstance(popup.getValidatedInput());
-	}
-	/*
-	 * Currently I need to figure out if I can use a custom list model that
-	 * will display what I want and return the constructor.
-	 * https://www.codejava.net/java-se/swing/create-custom-gui-for-jcombobox
-	 * https://stackoverflow.com/questions/43106351/creating-a-custom-table-model-to-provide-data-from-arraylist
-	 * 
-	 * still need to finish implementing this class
 	 * 
 	 */
 	private static JComboBox<?> createDropDown(String title, Class<?> classToMake)
