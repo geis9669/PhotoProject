@@ -1,11 +1,13 @@
 package pixLab.gui.questionsPopup;
 
-import java.io.IOException;
-
 import javax.swing.*;
-
 import pixLab.classes.Picture;
-
+/**
+ * Will return the picture that the user selected from the provided list.
+ * 
+ * @author gregory eisert
+ *
+ */
 public class PictureParameter extends ParameterInfo<JLabel, JComboBox<String>> {
 
 	public PictureParameter(String question, String[] list) {

@@ -120,19 +120,24 @@ public class PixLabPanel extends JPanel
 					
 					for(int index = 0; index< parameters.length; index++)
 					{
-						String message = parameters[index].getName();
-						ParameterInfo option;
-						if(parameters[index].getType().getSimpleName().equals("int"))
+						String type = parameters[index].getType().getSimpleName();
+						String message = type +" "+ parameters[index].getName();
+						ParameterInfo<? extends JComponent,? extends JComponent> option;
+						if(type.equals("int"))
 						{
 							option = new IntegerParameter(message);
 						}
-						else if(parameters[index].getType().getSimpleName().equals("Picture"))
+						else if(type.equals("Picture"))
 						{
 							option = new PictureParameter(message, getImageNames());
 						}
+						else if(type.equals("Color"))
+						{
+							Class<?> c = parameters[index].getType();//gets the class
+							option = new ObjectParameter<>(message,c);
+						}
 						// need one for color background color
 						// make a class that will make objects by going into the class so I don't have to.
-						
 						else
 						{
 							option = new IntegerParameter("not int or picture");

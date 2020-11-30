@@ -382,7 +382,7 @@ public class PictureTester
     
 //    testZeroColor(picture);
     
-//    testChromakey(picture, picture2); //greg
+    testChromakey(picture, picture2); //greg
       
 //    testEncodeAndDecode();
 //    testGetCountRedOverValue(250);
@@ -392,7 +392,7 @@ public class PictureTester
       
 //      testGlitch(picture);
 //      testGlitch3(picture);
-      testZero(picture);
+//      testZero(picture);
       
 //      testVerticalShift(picture);
 //      testHorizontalShift(picture);
