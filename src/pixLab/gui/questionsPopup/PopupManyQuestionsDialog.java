@@ -10,8 +10,21 @@ import java.util.List;
 
 import javax.swing.*;
 
+/**
+ * This is a frame for when you want the user to enter input
+ * to display any questions you have to give this class 
+ * ParamterInfo objects.
+ * 
+ * @author Gregory Eisert
+ *
+ */
 public class PopupManyQuestionsDialog extends JDialog
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Object[] inputedValues;
 	
 	private int value;
@@ -19,7 +32,7 @@ public class PopupManyQuestionsDialog extends JDialog
 	public final int CANCEL = 1;
 	public final int DONE = 2;
 	
-	private List<ParameterInfo<JComponent, JComponent>> qAndA;
+	private List<ParameterInfo<? extends JComponent, ? extends JComponent>> qAndA;
 	
 	private JPanel interactPanel;
 	private JScrollPane pageScroller;
@@ -28,10 +41,15 @@ public class PopupManyQuestionsDialog extends JDialog
 	private JButton cancelButton;
 	
 	private final int BUFFER = 10;
+
 	/*
 	 * make a class that holds a question, a place to enter info, and a generic way to get it.
 	 */
-	
+	/**
+	 * constructs a popup frame but does not show it.
+	 * 
+	 * @param ownerFrame the frame you want this frame to appear in front of.
+	 */
 	public PopupManyQuestionsDialog(Frame ownerFrame)
 	{
 		super(ownerFrame, true);
@@ -102,23 +120,29 @@ public class PopupManyQuestionsDialog extends JDialog
 		
 	}
 	
+	/**
+	 * when the user presses cancel on the popup window.
+	 */
 	private void closeWindow_Cancel()
 	{
 		value = CANCEL;
 		setVisible(false);
-		for(ParameterInfo item:qAndA)
+		for(ParameterInfo<? extends JComponent, ? extends JComponent> item:qAndA)
 		{
 			item.clearAnswerSpace();
 		}
 	}
 
-	
-	public void add(ParameterInfo qAndA)
+	/**
+	 * Provides a way to enter what inputs you need from the user.
+	 * 
+	 * @param qAndA is a class that is a child of ParameterInfo.
+	 */
+	public void add(ParameterInfo<? extends JComponent, ? extends JComponent> qAndA)
 	{
 		this.qAndA.add(qAndA);
 		upDateQuestionsPanel();
 	}
-	//need a method to call upDatePanel so when it is shown it displays right
 
 	/**
 	 * updates the panel that holds all the boxes to display to the user
@@ -132,6 +156,8 @@ public class PopupManyQuestionsDialog extends JDialog
 			{
 				vBoxQ.add(Box.createVerticalStrut(BUFFER/2));
 				vBoxE.add(Box.createVerticalStrut(BUFFER/2));
+				vBoxQ.add(Box.createVerticalGlue());
+				vBoxE.add(Box.createVerticalGlue());
 			}
 			vBoxQ.add(qAndA.get(index).getQuestion());
 			vBoxE.add(qAndA.get(index).getAnswerSpace());

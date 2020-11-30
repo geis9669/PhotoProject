@@ -2,6 +2,16 @@ package pixLab.gui.questionsPopup;
 
 import javax.swing.*;
 
+/**
+ * Provides an abstract way to use any JComponent for user input
+ * this class needs to be extend because it does not know enough about
+ * the JComponents to get user input.
+ * 
+ * @author Gregory Eisert
+ *
+ * @param <T> the first JComponent
+ * @param <E> the second JComponent
+ */
 public abstract class ParameterInfo<T extends JComponent , E extends JComponent> 
 {
 	/**
@@ -13,19 +23,33 @@ public abstract class ParameterInfo<T extends JComponent , E extends JComponent>
 	 */
 	private E answerSpace;
 
-	
+	/**
+	 * 
+	 * @param question the JComponent to ask the question for the input.
+	 * @param answerSpace how to enter in the input.
+	 */
 	public ParameterInfo(T question, E answerSpace)
 	{
 		this.question = question;
 		this.answerSpace = answerSpace;
 	}
 	
-	
+	/**
+	 * provides access to the question JComponent.
+	 * 
+	 * @return the question JComponent.
+	 */
 	public T getQuestion()
 	{
 		return question;
 	}
 	
+	/**
+	 * Provides access to the AnswerSpace (where you enter information) so 
+	 * you can get the input or get the item to display.
+	 * 
+	 * @return the Answer Space
+	 */
 	public E getAnswerSpace()
 	{
 		return answerSpace;
@@ -39,7 +63,7 @@ public abstract class ParameterInfo<T extends JComponent , E extends JComponent>
 	
 	/**
 	 * this should return what the user inputed
-	 * @return
+	 * @return the object constructed by the user.
 	 */
 	public abstract Object getValidatedInput();
 	
