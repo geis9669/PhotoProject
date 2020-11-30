@@ -24,7 +24,7 @@ public class PopupManyQuestionsDialog extends JDialog
 	public final int CANCEL = 1;
 	public final int DONE = 2;
 	
-	private List<ParameterInfo<JComponent, JComponent>> qAndA;
+	private List<ParameterInfo<? extends JComponent, ? extends JComponent>> qAndA;
 	
 	private JPanel interactPanel;
 	private JScrollPane pageScroller;
@@ -121,7 +121,7 @@ public class PopupManyQuestionsDialog extends JDialog
 	}
 
 	
-	public void add(ParameterInfo<JComponent,JComponent> qAndA)
+	public void add(ParameterInfo<? extends JComponent, ? extends JComponent> qAndA)
 	{
 		this.qAndA.add(qAndA);
 		upDateQuestionsPanel();

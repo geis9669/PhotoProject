@@ -122,7 +122,7 @@ public class PixLabPanel extends JPanel
 					{
 						String type = parameters[index].getType().getSimpleName();
 						String message = type +" "+ parameters[index].getName();
-						ParameterInfo option;
+						ParameterInfo<? extends JComponent,? extends JComponent> option;
 						if(type.equals("int"))
 						{
 							option = new IntegerParameter(message);
