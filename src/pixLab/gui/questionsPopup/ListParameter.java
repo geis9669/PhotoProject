@@ -70,7 +70,10 @@ public class ListParameter extends ParameterInfo<JLabel, JComboBox<Object>> {
 	@Override
 	public void clearAnswerSpace() {
 		JComboBox<Object> comboList = getAnswerSpace();
-		comboList.setSelectedIndex(0);
+		if(comboList.getItemCount()>0)
+		{
+			comboList.setSelectedIndex(0);
+		}
 	}
 
 }
